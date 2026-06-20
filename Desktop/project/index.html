@@ -42,42 +42,50 @@
   </div>
 
   <!-- ====== بنر اسلایدر ====== -->
-  <section class="banner-slider">
-    <div class="slider-container">
-      <div class="slide active">
-        <img src="images/banner1.jpg" alt="بنر ۱" onerror="this.src='https://via.placeholder.com/1920x600/1a1a2e/ffd700?text=AP+Game'">
-        <div class="slide-content">
-          <h1 data-key="banner-title1">🎮 به دنیای گیم خوش آمدید!</h1>
-          <p data-key="banner-desc1">آخرین اخبار، معرفی بازی‌های برتر و چالش‌های هفتگی را در AP Game دنبال کنید.</p>
-          <a href="news.html" class="btn-gold" data-key="banner-btn1">مشاهده اخبار</a>
-        </div>
-      </div>
-      <div class="slide">
-        <img src="images/banner2.jpg" alt="بنر ۲" onerror="this.src='https://via.placeholder.com/1920x600/2a1a3e/ffd700?text=جدیدترین+اخبار'">
-        <div class="slide-content">
-          <h1 data-key="banner-title2">📰 جدیدترین اخبار بازی</h1>
-          <p data-key="banner-desc2">همیشه از آخرین رویدادهای دنیای گیم مطلع باش!</p>
-          <a href="news.html" class="btn-gold" data-key="banner-btn2">خواندن اخبار</a>
-        </div>
-      </div>
-      <div class="slide">
-        <img src="images/banner3.jpg" alt="بنر ۳" onerror="this.src='https://via.placeholder.com/1920x600/1a2a3e/ffd700?text=چالش+هفتگی'">
-        <div class="slide-content">
-          <h1 data-key="banner-title3">🏆 چالش هفتگی</h1>
-          <p data-key="banner-desc3">هر هفته یک چالش جدید برای گیمرهای حرفه‌ای!</p>
-          <a href="challenge.html" class="btn-gold" data-key="banner-btn3">مشاهده چالش‌ها</a>
-        </div>
-      </div>
-      <button class="slider-btn prev" onclick="changeSlide(-1)">❮</button>
-      <button class="slider-btn next" onclick="changeSlide(1)">❯</button>
-      <div class="slider-dots">
-        <span class="dot active" onclick="goToSlide(0)"></span>
-        <span class="dot" onclick="goToSlide(1)"></span>
-        <span class="dot" onclick="goToSlide(2)"></span>
+<section class="banner-slider">
+  <div class="slider-container">
+    
+    <!-- اسلاید ۱ -->
+    <div class="slide active" data-emoji-left="🎮" data-emoji-right="👾">
+      <img src="images/banner1.jpg" alt="بنر ۱" onerror="this.src='https://via.placeholder.com/1920x600/1a1a2e/ffd700?text=AP+Game'">
+      <div class="slide-content">
+        <h1 data-key="banner-title1">🎮 به دنیای گیم خوش آمدید!</h1>
+        <p data-key="banner-desc1">آخرین اخبار، معرفی بازی‌های برتر و چالش‌های هفتگی را در AP Game دنبال کنید.</p>
+        <a href="news.html" class="btn-gold" data-key="banner-btn1">مشاهده اخبار</a>
       </div>
     </div>
-  </section>
 
+    <!-- اسلاید ۲ -->
+    <div class="slide" data-emoji-left="📰" data-emoji-right="🎯">
+      <img src="images/banner2.jpg" alt="بنر ۲" onerror="this.src='https://via.placeholder.com/1920x600/2a1a3e/ffd700?text=جدیدترین+اخبار'">
+      <div class="slide-content">
+        <h1 data-key="banner-title2">📰 جدیدترین اخبار بازی</h1>
+        <p data-key="banner-desc2">همیشه از آخرین رویدادهای دنیای گیم مطلع باش!</p>
+        <a href="news.html" class="btn-gold" data-key="banner-btn2">خواندن اخبار</a>
+      </div>
+    </div>
+
+    <!-- اسلاید ۳ -->
+    <div class="slide" data-emoji-left="🏆" data-emoji-right="⭐">
+      <img src="images/banner3.jpg" alt="بنر ۳" onerror="this.src='https://via.placeholder.com/1920x600/1a2a3e/ffd700?text=چالش+هفتگی'">
+      <div class="slide-content">
+        <h1 data-key="banner-title3">🏆 چالش هفتگی</h1>
+        <p data-key="banner-desc3">هر هفته یک چالش جدید برای گیمرهای حرفه‌ای!</p>
+        <a href="challenge.html" class="btn-gold" data-key="banner-btn3">مشاهده چالش‌ها</a>
+      </div>
+    </div>
+
+    <button class="slider-btn prev" onclick="changeSlide(-1)">❮</button>
+    <button class="slider-btn next" onclick="changeSlide(1)">❯</button>
+
+    <div class="slider-dots">
+      <span class="dot active" onclick="goToSlide(0)"></span>
+      <span class="dot" onclick="goToSlide(1)"></span>
+      <span class="dot" onclick="goToSlide(2)"></span>
+    </div>
+
+  </div>
+</section>
   <!-- ====== اسلایدر متنی ====== -->
   <section class="text-slider-section">
     <div class="container">
@@ -124,24 +132,24 @@
   </section>
 
   <!-- ====== فوتر ====== -->
-  <!-- ====== فوتر ====== -->
-<footer>
-  <div class="container footer-flex">
-    <div class="footer-left">
-      <a href="https://teamapcode.github.io/my-small-site/" target="_blank">
-        <img src="images/signature.jpg" alt="امضا" class="footer-signature" onerror="this.style.display='none'">
-      </a>
+  <footer>
+    <div class="container footer-flex">
+      <div class="footer-left">
+        <a href="https://teamapcode.github.io/my-small-site/" target="_blank">
+          <img src="images/signature.jpg" alt="امضا" class="footer-signature" onerror="this.style.display='none'">
+        </a>
+      </div>
+      <div class="footer-right">
+        <p class="footer-phrase" data-key="footer-phrase">🎮 بازی تنها زندگی در رویا نیست، بلکه سفری‌ست به جایی فراتر از واقعیت.</p>
+        <p class="footer-established" data-key="footer-established">تأسیس: ۱۴۰۵/۲۰۲۶</p>
+      </div>
     </div>
-    <div class="footer-right">
-      <p class="footer-phrase" data-key="footer-phrase">🎮 بازی تنها زندگی در رویا نیست، بلکه سفری‌ست به جایی فراتر از واقعیت.</p>
-      <p class="footer-established" data-key="footer-established">تأسیس: ۱۴۰۵/۲۰۲۶</p>
+    <div class="container footer-bottom">
+      <p data-key="footer-copy">© ۱۴۰۵ تمامی حقوق برای <strong>AP Game</strong> محفوظ است.</p>
+      <p data-key="footer-love">ساخته شده با ❤️ برای جامعه گیمینگ ایران</p>
     </div>
-  </div>
-  <div class="container footer-bottom">
-    <p data-key="footer-copy">© ۱۴۰۵ تمامی حقوق برای <strong>AP Game</strong> محفوظ است.</p>
-    <p data-key="footer-love">ساخته شده با ❤️ برای جامعه گیمینگ ایران</p>
-  </div>
-</footer>
+  </footer>
+
   <!-- ====== مودال ثبت‌نام ====== -->
   <div id="userModal" class="modal">
     <div class="modal-content">

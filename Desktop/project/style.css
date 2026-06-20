@@ -3,1704 +3,1687 @@
 /* ========================================== */
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    background: #0d0d1a;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #fff;
-    line-height: 1.6;
-  }
-  
-  .container {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-  
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-  
-  html[dir="rtl"] {
-    direction: rtl;
-  }
-  
-  html[dir="ltr"] {
-    direction: ltr;
-  }
-  
-  /* ========================================== */
-  /* ====== هدر ====== */
-  /* ========================================== */
-  
-  header {
-    background: #0d0d1a;
-    border-bottom: 2px solid #1a1a2e;
-    padding: 15px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(10px);
-  }
-  
-  .header-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .logo img {
-    height: 45px;
-    width: auto;
-  }
-  
-  .logo-text {
-    font-size: 24px;
-    font-weight: 900;
-    color: #ffd700;
-    letter-spacing: 1px;
-  }
-  
-  nav ul {
-    display: flex;
-    list-style: none;
-    gap: 5px;
-    flex-wrap: wrap;
-  }
-  
-  nav ul li a {
-    padding: 8px 16px;
-    border-radius: 30px;
-    font-size: 14px;
-    font-weight: 500;
-    transition: 0.3s;
-    color: #aaa;
-  }
-  
-  nav ul li a:hover,
-  nav ul li a.active {
-    background: #ffd700;
-    color: #0d0d1a;
-  }
-  
-  .lang-btn {
-    background: transparent;
-    border: 2px solid #ffd700;
-    color: #ffd700;
-    padding: 6px 16px;
-    border-radius: 30px;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  .lang-btn:hover {
-    background: #ffd700;
-    color: #0d0d1a;
-    transform: scale(1.05);
-  }
-  
-  /* ========================================== */
-  /* ====== وضعیت کاربر ====== */
-  /* ========================================== */
-  
-  #userStatus {
-    position: fixed;
-    top: 80px;
-    left: 20px;
-    z-index: 999;
-    animation: slideIn 0.5s ease;
-  }
-  
-  html[dir="ltr"] #userStatus {
-    left: auto;
-    right: 20px;
-  }
-  
-  @keyframes slideIn {
-    from { transform: translateX(-50px); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
-  }
-  
-  .user-status-box {
-    background: #1a1a2e;
-    padding: 12px 18px;
-    border-radius: 14px;
-    border: 1px solid #ffd70044;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  
-  .user-avatar-big {
-    font-size: 32px;
-  }
-  
-  .user-name-display {
-    color: #ffd700;
-    font-weight: bold;
-    font-size: 15px;
-  }
-  
-  .user-phone-display {
-    color: #888;
-    font-size: 12px;
-  }
-  
-  .logout-btn {
-    background: #ff4444;
-    color: #fff;
-    border: none;
-    border-radius: 20px;
-    padding: 4px 14px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  .logout-btn:hover {
-    background: #ff6666;
-    transform: scale(1.05);
-  }
-  
-  /* ========================================== */
-  /* ====== بنر اسلایدر ====== */
-  /* ========================================== */
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0d0d1a;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+html[dir="rtl"] {
+  direction: rtl;
+}
+
+html[dir="ltr"] {
+  direction: ltr;
+}
+
+/* ========================================== */
+/* ====== هدر ====== */
+/* ========================================== */
+
+header {
+  background: #0d0d1a;
+  border-bottom: 2px solid #1a1a2e;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  height: 45px;
+  width: auto;
+}
+
+.logo-text {
+  font-size: 24px;
+  font-weight: 900;
+  color: #ffd700;
+  letter-spacing: 1px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+nav ul li a {
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: 0.3s;
+  color: #aaa;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  background: #ffd700;
+  color: #0d0d1a;
+}
+
+.lang-btn {
+  background: transparent;
+  border: 2px solid #ffd700;
+  color: #ffd700;
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.lang-btn:hover {
+  background: #ffd700;
+  color: #0d0d1a;
+  transform: scale(1.05);
+}
+
+/* ========================================== */
+/* ====== وضعیت کاربر ====== */
+/* ========================================== */
+
+#userStatus {
+  position: fixed;
+  top: 80px;
+  left: 20px;
+  z-index: 999;
+  animation: slideIn 0.5s ease;
+}
+
+html[dir="ltr"] #userStatus {
+  left: auto;
+  right: 20px;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.user-status-box {
+  background: #1a1a2e;
+  padding: 12px 18px;
+  border-radius: 14px;
+  border: 1px solid #ffd70044;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-avatar-big {
+  font-size: 32px;
+}
+
+.user-name-display {
+  color: #ffd700;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.user-phone-display {
+  color: #888;
+  font-size: 12px;
+}
+
+.logout-btn {
+  background: #ff4444;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  background: #ff6666;
+  transform: scale(1.05);
+}
+
+/* ========================================== */
+/* ====== بنر اسلایدر ====== */
+/* ========================================== */
+
+.banner-slider {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  background: #0d0d1a;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;  /* ← این رو حتماً hidden نگه دار */
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  z-index: 1;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0.5);
+  background: #0d0d1a;
+}
+
+/* ===== ریسپانسیو ===== */
+@media (max-width: 768px) {
   .banner-slider {
-    position: relative;
-    width: 100%;
-    height: 500px;
-    overflow: hidden;
-    background: #0d0d1a;
+    height: 300px;
   }
-  
-  .slider-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
+}
+
+@media (max-width: 500px) {
+  .banner-slider {
+    height: 200px;
   }
-  
+}
+
+/* ========================================== */
+/* ====== ایموجی‌های متحرک (با overflow: hidden) ====== */
+/* ========================================== */
+
+@media (min-width: 769px) {
+  /* ===== هر اسلاید یک wrapper برای ایموجی‌ها ===== */
   .slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.8s ease-in-out;
+    overflow: visible !important; /* فقط خود اسلاید overflow: visible */
     z-index: 1;
   }
   
   .slide.active {
-    opacity: 1;
-    z-index: 2;
-  }
-  
-  .slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.5);
-  }
-  
-  .slide-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: #fff;
     z-index: 3;
-    width: 90%;
-    max-width: 700px;
-    padding: 20px;
   }
-  
-  .slide-content h1 {
-    font-size: 42px;
-    color: #ffd700;
-    margin-bottom: 15px;
-    text-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
-  }
-  
-  .slide-content p {
-    font-size: 18px;
-    color: #ddd;
-    margin-bottom: 25px;
-    text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-  }
-  
-  .slide-content .btn-gold {
-    display: inline-block;
-    padding: 14px 45px;
-    background: linear-gradient(135deg, #ffd700, #f0a500);
-    color: #0d0d1a;
-    border-radius: 50px;
-    font-weight: bold;
-    font-size: 16px;
-    transition: 0.3s;
-    text-decoration: none;
-  }
-  
-  .slide-content .btn-gold:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 30px #ffd70044;
-  }
-  
-  .slider-btn {
+
+  /* ===== ایموجی چپ ===== */
+  .slide::before {
+    content: attr(data-emoji-left);
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 215, 0, 0.15);
-    color: #ffd700;
-    border: 2px solid #ffd70044;
-    padding: 15px 20px;
-    cursor: pointer;
-    font-size: 24px;
-    border-radius: 50%;
-    z-index: 10;
-    transition: 0.3s;
-    backdrop-filter: blur(5px);
-  }
-  
-  .slider-btn:hover {
-    background: #ffd700;
-    color: #0d0d1a;
-    border-color: #ffd700;
-  }
-  
-  .slider-btn.prev {
     left: 20px;
-  }
-  
-  .slider-btn.next {
-    right: 20px;
-  }
-  
-  .slider-dots {
-    position: absolute;
-    bottom: 25px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 12px;
-    z-index: 10;
-  }
-  
-  .slider-dots .dot {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    cursor: pointer;
-    transition: 0.3s;
-    border: 2px solid transparent;
-  }
-  
-  .slider-dots .dot:hover {
-    background: rgba(255, 215, 0, 0.5);
-  }
-  
-  .slider-dots .dot.active {
-    background: #ffd700;
-    border-color: #ffd700;
-    box-shadow: 0 0 20px #ffd70066;
-    transform: scale(1.2);
-  }
-  
-  /* ========================================== */
-  /* ====== اسلایدر متنی ====== */
-  /* ========================================== */
-  
-  .text-slider-section {
-    background: linear-gradient(135deg, #0d0d1a, #1a1a2e);
-    padding: 40px 0;
-    border-bottom: 2px solid #1a1a2e;
-    border-top: 2px solid #1a1a2e;
-  }
-  
-  .text-slider-container {
-    position: relative;
-    height: 100px;
-    overflow: hidden;
-    text-align: center;
-  }
-  
-  .text-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 50%;
+    transform: translateY(-50%) translateX(-30px) scale(0.5);
+    font-size: 70px;
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    z-index: 10;
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.3));
+    line-height: 1;
+    pointer-events: none;
   }
-  
-  .text-slide.active {
+
+  /* ===== ایموجی راست ===== */
+  .slide::after {
+    content: attr(data-emoji-right);
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%) translateX(30px) scale(0.5);
+    font-size: 70px;
+    opacity: 0;
+    z-index: 10;
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s;
+    filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.3));
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  /* ===== نمایش ایموجی‌ها وقتی اسلاید فعال میشه ===== */
+  .slide.active::before {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(-50%) translateX(0) scale(1);
+    animation: floatEmojiLeft 3s ease-in-out infinite;
   }
-  
-  .text-slide h2 {
-    font-size: 32px;
-    color: #ffd700;
-    margin-bottom: 5px;
-    text-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+
+  .slide.active::after {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0) scale(1);
+    animation: floatEmojiRight 3.5s ease-in-out infinite;
   }
-  
-  .text-slide p {
-    font-size: 16px;
-    color: #aaa;
+
+  @keyframes floatEmojiLeft {
+    0%, 100% {
+      transform: translateY(-50%) translateX(0) rotate(-5deg);
+    }
+    50% {
+      transform: translateY(-60%) translateX(-8px) rotate(5deg);
+    }
   }
-  
-  /* ========================================== */
-  /* ====== عنوان بخش‌ها ====== */
-  /* ========================================== */
-  
-  .section-title {
-    font-size: 30px;
-    color: #ffd700;
-    text-align: center;
-    margin: 50px 0 30px 0;
-    border-bottom: 2px solid #ffd70033;
-    padding-bottom: 15px;
+
+  @keyframes floatEmojiRight {
+    0%, 100% {
+      transform: translateY(-50%) translateX(0) rotate(5deg);
+    }
+    50% {
+      transform: translateY(-40%) translateX(8px) rotate(-5deg);
+    }
   }
-  
-  /* ========================================== */
-  /* ====== کارت‌های اخبار ====== */
-  /* ========================================== */
-  
-  .news-grid {
-    display: flex;
+}
+
+@media (max-width: 768px) {
+  .slide::before,
+  .slide::after {
+    display: none !important;
+  }
+}
+
+/* ========================================== */
+/* ====== اسلایدر متنی ====== */
+/* ========================================== */
+
+.text-slider-section {
+  background: linear-gradient(135deg, #0d0d1a, #1a1a2e);
+  padding: 40px 0;
+  border-bottom: 2px solid #1a1a2e;
+  border-top: 2px solid #1a1a2e;
+}
+
+.text-slider-container {
+  position: relative;
+  height: 100px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.text-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-slide.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.text-slide h2 {
+  font-size: 32px;
+  color: #ffd700;
+  margin-bottom: 5px;
+  text-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+}
+
+.text-slide p {
+  font-size: 16px;
+  color: #aaa;
+}
+
+/* ========================================== */
+/* ====== عنوان بخش‌ها ====== */
+/* ========================================== */
+
+.section-title {
+  font-size: 30px;
+  color: #ffd700;
+  text-align: center;
+  margin: 50px 0 30px 0;
+  border-bottom: 2px solid #ffd70033;
+  padding-bottom: 15px;
+}
+
+/* ========================================== */
+/* ====== کارت‌های اخبار ====== */
+/* ========================================== */
+
+.news-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.news-card {
+  background: linear-gradient(145deg, #1a1a2e, #16213e);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  transition: 0.4s ease;
+  border: 1px solid #2a2a4a;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+  border-color: #ffd700;
+  box-shadow: 0 15px 40px rgba(255, 215, 0, 0.1);
+}
+
+.news-image-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #0d0d1a;
+}
+
+.news-image-wrapper img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  display: block;
+  background: #0d0d1a;
+  border-bottom: 2px solid #2a2a4a;
+}
+
+.news-image-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+  color: #fff;
+  padding: 30px 15px 12px 15px;
+  font-size: 18px;
+  font-weight: 800;
+  text-align: center;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+  pointer-events: none;
+}
+
+.news-content {
+  padding: 18px 20px 15px 20px;
+}
+
+.news-badge {
+  display: inline-block;
+  background: #ffd700;
+  color: #0d0d1a;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 3px 14px;
+  border-radius: 30px;
+  margin-bottom: 8px;
+}
+
+.news-title {
+  color: #fff;
+  font-size: 20px;
+  margin: 5px 0 10px 0;
+  line-height: 1.4;
+}
+
+.news-preview {
+  color: #aaa;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.news-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.news-date {
+  color: #888;
+  font-size: 12px;
+}
+
+.news-readmore {
+  color: #ffd700;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.news-full {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0 20px;
+  background: #0f0f23;
+  border-top: 3px solid #ffd700;
+  color: #d0d0e0;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.news-full.show {
+  max-height: 1000px;
+  padding: 18px 20px 20px 20px;
+}
+
+.news-full strong {
+  color: #ffd700;
+}
+
+.news-full ul {
+  padding-right: 20px;
+  color: #ddd;
+}
+
+html[dir="ltr"] .news-full ul {
+  padding-right: 0;
+  padding-left: 20px;
+}
+
+.news-quote {
+  background: #0d0d1a;
+  padding: 12px 18px;
+  border-radius: 12px;
+  margin: 12px 0;
+  border-right: 4px solid #ffd700;
+}
+
+html[dir="ltr"] .news-quote {
+  border-right: none;
+  border-left: 4px solid #ffd700;
+}
+
+.news-quote p {
+  color: #ffd700;
+  margin: 0;
+}
+
+.btn-download {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 8px 25px;
+  background: linear-gradient(135deg, #ffd700, #f0a500);
+  color: #0d0d1a;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-download:hover {
+  transform: scale(1.05);
+}
+
+/* ========================================== */
+/* ====== کارت‌های معرفی بازی ====== */
+/* ========================================== */
+
+.game-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
+
+.game-card {
+  width: 280px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  transition: 0.4s ease;
+  border: 2px solid #2a2a4a;
+  position: relative;
+  background: #1a1a2e;
+}
+
+.game-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: #ffd700;
+  box-shadow: 0 15px 40px rgba(255, 215, 0, 0.15);
+}
+
+.game-image-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #0d0d1a;
+}
+
+.game-image-wrapper img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  display: block;
+  background: #0d0d1a;
+  border-bottom: 2px solid #2a2a4a;
+}
+
+.game-image-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+  color: #fff;
+  padding: 30px 15px 12px 15px;
+  font-size: 20px;
+  font-weight: 800;
+  text-align: center;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+  pointer-events: none;
+}
+
+.game-genre {
+  text-align: center;
+  font-size: 12px;
+  color: #aaa;
+  margin: 8px 0 5px 0;
+}
+
+.game-preview {
+  padding: 0 15px 18px 15px;
+  color: #aaa;
+  font-size: 13px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.game-full {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0 18px;
+  background: #0f0f23;
+  border-top: 3px solid #ffd700;
+  color: #d0d0e0;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.game-full.show {
+  max-height: 650px;
+  padding: 18px 18px 20px 18px;
+}
+
+.game-full strong {
+  color: #ffd700;
+}
+
+.game-full .suitable {
+  display: inline-block;
+  background: #ffd70022;
+  padding: 6px 14px;
+  border-radius: 30px;
+  margin-top: 8px;
+  font-size: 13px;
+  color: #ffd700;
+  border: 1px solid #ffd70044;
+}
+
+.game-card.genre-action { border-color: #e74c3c; }
+.game-card.genre-adventure { border-color: #2ecc71; }
+.game-card.genre-rpg { border-color: #9b59b6; }
+.game-card.genre-fps { border-color: #e67e22; }
+.game-card.genre-moba { border-color: #1abc9c; }
+.game-card.genre-social { border-color: #f39c12; }
+
+.close-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 6px 20px;
+  background: #ff4444;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close-btn:hover {
+  background: #ff6666;
+  transform: scale(1.05);
+}
+
+/* ========================================== */
+/* ====== کارت اصلی چالش (بازشو) ====== */
+/* ========================================== */
+
+.challenge-main-card {
+  background: linear-gradient(145deg, #1a1a2e, #16213e);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+  border: 1px solid #2a2a4a;
+  max-width: 850px;
+  margin: 0 auto;
+  transition: 0.3s;
+}
+
+.challenge-main-card:hover {
+  border-color: #ffd70044;
+}
+
+.challenge-header-card {
+  padding: 20px 25px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-bottom: 1px solid #2a2a4a;
+}
+
+.challenge-header-card:hover {
+  background: rgba(255, 215, 0, 0.05);
+}
+
+.challenge-header-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.challenge-icon {
+  font-size: 40px;
+  flex-shrink: 0;
+}
+
+.challenge-header-content h3 {
+  color: #ffd700;
+  font-size: 22px;
+  margin: 0;
+}
+
+.challenge-header-content p {
+  color: #aaa;
+  font-size: 14px;
+  margin: 3px 0 0 0;
+}
+
+.challenge-arrow {
+  margin-right: auto;
+  font-size: 24px;
+  color: #ffd700;
+  transition: 0.3s;
+}
+
+html[dir="ltr"] .challenge-arrow {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.challenge-body-card {
+  padding: 25px;
+  animation: fadeIn 0.4s ease;
+}
+
+/* ========================================== */
+/* ====== بخش چالش ====== */
+/* ========================================== */
+
+.section-challenge {
+  padding: 20px 0 50px 0;
+}
+
+.question-box {
+  background: #0d0d1a;
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-bottom: 16px;
+  border: 1px solid #2a2a4a;
+  transition: 0.3s;
+}
+
+.question-box:hover {
+  border-color: #ffd70044;
+}
+
+.question-text {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.options {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #ccc;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 6px 14px;
+  border-radius: 30px;
+  background: #1a1a2e;
+  border: 1px solid #2a2a4a;
+  transition: 0.3s;
+}
+
+.option:hover {
+  background: #2a2a4a;
+  border-color: #ffd70044;
+}
+
+.option input[type="radio"] {
+  accent-color: #ffd700;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.option:has(input:checked) {
+  background: #ffd70022;
+  border-color: #ffd700;
+  color: #ffd700;
+}
+
+.btn-submit-quiz {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #ffd700, #f0a500);
+  color: #0d0d1a;
+  border: none;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 10px;
+}
+
+.btn-submit-quiz:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 30px #ffd70044;
+}
+
+.quiz-result {
+  margin-top: 30px;
+  animation: fadeIn 0.6s ease;
+}
+
+.result-box {
+  background: linear-gradient(145deg, #1a1a2e, #0d0d1a);
+  border-radius: 20px;
+  padding: 30px 25px;
+  text-align: center;
+  border: 2px solid #ffd70044;
+}
+
+.result-emoji {
+  font-size: 60px;
+  margin-bottom: 10px;
+}
+
+.result-score {
+  color: #ffd700;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.result-level {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.result-message {
+  color: #ccc;
+  font-size: 16px;
+  line-height: 1.8;
+  max-width: 500px;
+  margin: 0 auto 20px auto;
+}
+
+.btn-retry {
+  padding: 10px 35px;
+  background: transparent;
+  color: #ffd700;
+  border: 2px solid #ffd700;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-retry:hover {
+  background: #ffd700;
+  color: #0d0d1a;
+  transform: scale(1.05);
+}
+
+/* ========================================== */
+/* ====== بخش جوایز ====== */
+/* ========================================== */
+
+.section-rewards {
+  padding: 20px 0 50px 0;
+}
+
+.rewards-desc {
+  text-align: center;
+  color: #aaa;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+.reward-card {
+  background: linear-gradient(145deg, #1a1a2e, #16213e);
+  border-radius: 20px;
+  padding: 30px 25px;
+  text-align: center;
+  border: 2px solid #2a2a4a;
+  transition: 0.4s ease;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.reward-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.reward-card .reward-icon {
+  font-size: 60px;
+  margin-bottom: 10px;
+}
+
+.reward-card .reward-title {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+
+.reward-card .reward-score {
+  color: #888;
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+.reward-card .reward-desc {
+  color: #ccc;
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+.reward-card.reward-very-high {
+  border-color: #ffd700;
+  background: linear-gradient(145deg, #1a1a2e, #2a1a3e);
+}
+
+.reward-card.reward-high {
+  border-color: #2ecc71;
+  background: linear-gradient(145deg, #1a1a2e, #0d2a1a);
+}
+
+.reward-card.reward-mid {
+  border-color: #3498db;
+  background: linear-gradient(145deg, #1a1a2e, #0d1a2a);
+}
+
+.reward-card.reward-low {
+  border-color: #e67e22;
+  background: linear-gradient(145deg, #1a1a2e, #2a1a0d);
+}
+
+.rewards-note {
+  text-align: center;
+  background: #1a1a2e;
+  padding: 25px;
+  border-radius: 14px;
+  max-width: 500px;
+  margin: 30px auto 0 auto;
+  border: 1px solid #2a2a4a;
+}
+
+.rewards-note p {
+  color: #aaa;
+  font-size: 15px;
+  margin: 5px 0;
+}
+
+.rewards-note a {
+  color: #ffd700;
+  font-weight: bold;
+}
+
+/* ========================================== */
+/* ====== نظرات ====== */
+/* ========================================== */
+
+.comment-form {
+  background: #1a1a2e;
+  padding: 25px;
+  border-radius: 16px;
+  margin-top: 30px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #2a2a4a;
+}
+
+.comment-form h3 {
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.comment-form textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 2px solid #2a2a4a;
+  background: #0d0d1a;
+  color: #fff;
+  font-size: 15px;
+  resize: vertical;
+  font-family: inherit;
+  transition: 0.3s;
+}
+
+.comment-form textarea:focus {
+  outline: none;
+  border-color: #ffd700;
+}
+
+.btn-submit-comment {
+  margin-top: 12px;
+  padding: 12px 35px;
+  background: linear-gradient(135deg, #ffd700, #f0a500);
+  color: #0d0d1a;
+  border: none;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-submit-comment:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px #ffd70044;
+}
+
+#commentsContainer {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.comment-item {
+  background: #1a1a2e;
+  padding: 18px 20px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  border-left: 4px solid #ffd700;
+  transition: 0.3s;
+  animation: fadeIn 0.4s ease;
+}
+
+html[dir="ltr"] .comment-item {
+  border-left: none;
+  border-right: 4px solid #ffd700;
+}
+
+.comment-item:hover {
+  background: #22224a;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.comment-name {
+  color: #ffd700;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.comment-date {
+  color: #888;
+  font-size: 12px;
+}
+
+.comment-text {
+  color: #ddd;
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 5px 0 12px 0;
+}
+
+.comment-reply-btn {
+  background: transparent;
+  color: #aaa;
+  border: 1px solid #444;
+  padding: 4px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.comment-reply-btn:hover {
+  border-color: #ffd700;
+  color: #ffd700;
+}
+
+.replies-container {
+  margin-left: 30px;
+  margin-top: 12px;
+  padding-left: 15px;
+  border-left: 2px dashed #444;
+}
+
+html[dir="ltr"] .replies-container {
+  margin-left: 0;
+  margin-right: 30px;
+  padding-left: 0;
+  padding-right: 15px;
+  border-left: none;
+  border-right: 2px dashed #444;
+}
+
+.reply-item {
+  background: #111125;
+  padding: 12px 16px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  border-left: 3px solid #f39c12;
+}
+
+html[dir="ltr"] .reply-item {
+  border-left: none;
+  border-right: 3px solid #f39c12;
+}
+
+.reply-item .comment-name {
+  color: #f39c12;
+  font-size: 14px;
+}
+
+.empty-message {
+  color: #888;
+  text-align: center;
+  padding: 30px;
+  background: #1a1a2e;
+  border-radius: 12px;
+  border: 1px dashed #444;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ========================================== */
+/* ====== مودال ثبت‌نام ====== */
+/* ========================================== */
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.4s ease;
+}
+
+.modal.show {
+  display: flex;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.modal-content {
+  background: linear-gradient(145deg, #1a1a2e, #16213e);
+  border-radius: 24px;
+  padding: 35px 30px;
+  max-width: 450px;
+  width: 95%;
+  border: 2px solid #ffd70044;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+}
+
+.modal-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.modal-header h2 {
+  color: #ffd700;
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+
+.modal-header p {
+  color: #aaa;
+  font-size: 14px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  color: #ccc;
+  font-size: 14px;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 2px solid #2a2a4a;
+  background: #0d0d1a;
+  color: #fff;
+  font-size: 15px;
+  transition: 0.3s;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #ffd700;
+  box-shadow: 0 0 20px #ffd70022;
+}
+
+.avatar-select {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 5px 0;
+}
+
+.avatar-option {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #0d0d1a;
+  border: 3px solid #2a2a4a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.avatar-option:hover {
+  transform: scale(1.1);
+  border-color: #ffd70088;
+}
+
+.avatar-option.active {
+  border-color: #ffd700;
+  box-shadow: 0 0 25px #ffd70044;
+}
+
+.btn-submit-user {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #ffd700, #f0a500);
+  color: #0d0d1a;
+  border: none;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 5px;
+}
+
+.btn-submit-user:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 30px #ffd70044;
+}
+
+/* ========================================== */
+/* ====== صفحات درباره ما و حریم خصوصی ====== */
+/* ========================================== */
+
+.page-title {
+  font-size: 32px;
+  color: #ffd700;
+  text-align: center;
+  margin: 40px 0 30px 0;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 18px;
+  border: 2px solid #2a2a4a;
+}
+
+.about-text h2 {
+  color: #ffd700;
+  font-size: 22px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.about-text p {
+  color: #ccc;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.about-text ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about-text ul li {
+  padding: 5px 0;
+  color: #ddd;
+  font-size: 15px;
+}
+
+.privacy-box {
+  background: #1a1a2e;
+  padding: 20px 25px;
+  border-radius: 14px;
+  margin-bottom: 18px;
+  border-right: 4px solid #ffd700;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+html[dir="ltr"] .privacy-box {
+  border-right: none;
+  border-left: 4px solid #ffd700;
+}
+
+.privacy-box h2 {
+  color: #ffd700;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.privacy-box p {
+  color: #ccc;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.privacy-contact {
+  text-align: center;
+  background: #1a1a2e;
+  padding: 25px;
+  border-radius: 14px;
+  max-width: 500px;
+  margin: 30px auto;
+  border: 1px solid #ffd70044;
+}
+
+.privacy-contact p {
+  color: #ccc;
+  font-size: 16px;
+}
+
+/* ========================================== */
+/* ====== فوتر با امضا ====== */
+/* ========================================== */
+
+footer {
+  background: #0a0a16;
+  border-top: 2px solid #1a1a2e;
+  padding: 30px 0 15px 0;
+  margin-top: 60px;
+}
+
+.footer-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #1a1a2e;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-signature {
+  height: 50px;
+  width: auto;
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.footer-signature:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.footer-right {
+  text-align: left;
+}
+
+html[dir="rtl"] .footer-right {
+  text-align: right;
+}
+
+.footer-phrase {
+  color: #ddd;
+  font-size: 16px;
+  font-style: italic;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+.footer-established {
+  color: #666;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 15px;
+}
+
+.footer-bottom p {
+  color: #666;
+  font-size: 13px;
+  margin: 3px 0;
+}
+
+.footer-bottom strong {
+  color: #ffd700;
+}
+
+/* ========================================== */
+/* ====== ریسپانسیو ====== */
+/* ========================================== */
+
+@media (max-width: 768px) {
+  .header-flex {
     flex-direction: column;
-    gap: 25px;
-    max-width: 850px;
-    margin: 0 auto;
-  }
-  
-  .news-card {
-    background: linear-gradient(145deg, #1a1a2e, #16213e);
-    border-radius: 18px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-    cursor: pointer;
-    transition: 0.4s ease;
-    border: 1px solid #2a2a4a;
-  }
-  
-  .news-card:hover {
-    transform: translateY(-5px);
-    border-color: #ffd700;
-    box-shadow: 0 15px 40px rgba(255, 215, 0, 0.1);
-  }
-  
-  /* ===== عکس اخبار با نمایش کامل ===== */
-  .news-image-wrapper {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    background: #0d0d1a;
-  }
-  
-  .news-image-wrapper img {
-    width: 100%;
-    height: 220px;
-    object-fit: contain;
-    display: block;
-    background: #0d0d1a;
-    border-bottom: 2px solid #2a2a4a;
-  }
-  
-  .news-image-title {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
-    color: #fff;
-    padding: 30px 15px 12px 15px;
-    font-size: 18px;
-    font-weight: 800;
-    text-align: center;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
-    pointer-events: none;
-  }
-  
-  .news-content {
-    padding: 18px 20px 15px 20px;
-  }
-  
-  .news-badge {
-    display: inline-block;
-    background: #ffd700;
-    color: #0d0d1a;
-    font-size: 11px;
-    font-weight: bold;
-    padding: 3px 14px;
-    border-radius: 30px;
-    margin-bottom: 8px;
-  }
-  
-  .news-title {
-    color: #fff;
-    font-size: 20px;
-    margin: 5px 0 10px 0;
-    line-height: 1.4;
-  }
-  
-  .news-preview {
-    color: #aaa;
-    font-size: 14px;
-    line-height: 1.7;
-    margin-bottom: 10px;
-  }
-  
-  .news-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  
-  .news-date {
-    color: #888;
-    font-size: 12px;
-  }
-  
-  .news-readmore {
-    color: #ffd700;
-    font-size: 13px;
-    font-weight: bold;
-  }
-  
-  .news-full {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    padding: 0 20px;
-    background: #0f0f23;
-    border-top: 3px solid #ffd700;
-    color: #d0d0e0;
-    font-size: 14px;
-    line-height: 1.9;
-  }
-  
-  .news-full.show {
-    max-height: 1000px;
-    padding: 18px 20px 20px 20px;
-  }
-  
-  .news-full strong {
-    color: #ffd700;
-  }
-  
-  .news-full ul {
-    padding-right: 20px;
-    color: #ddd;
-  }
-  
-  html[dir="ltr"] .news-full ul {
-    padding-right: 0;
-    padding-left: 20px;
-  }
-  
-  .news-quote {
-    background: #0d0d1a;
-    padding: 12px 18px;
-    border-radius: 12px;
-    margin: 12px 0;
-    border-right: 4px solid #ffd700;
-  }
-  
-  html[dir="ltr"] .news-quote {
-    border-right: none;
-    border-left: 4px solid #ffd700;
-  }
-  
-  .news-quote p {
-    color: #ffd700;
-    margin: 0;
-  }
-  
-  .btn-download {
-    display: inline-block;
-    margin-top: 8px;
-    padding: 8px 25px;
-    background: linear-gradient(135deg, #ffd700, #f0a500);
-    color: #0d0d1a;
-    border-radius: 30px;
-    font-weight: bold;
-    transition: 0.3s;
-  }
-  
-  .btn-download:hover {
-    transform: scale(1.05);
-  }
-  
-  /* ========================================== */
-  /* ====== کارت‌های معرفی بازی ====== */
-  /* ========================================== */
-  
-  .game-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
-    justify-content: center;
-  }
-  
-  .game-card {
-    width: 280px;
-    border-radius: 18px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-    cursor: pointer;
-    transition: 0.4s ease;
-    border: 2px solid #2a2a4a;
-    position: relative;
-    background: #1a1a2e;
-  }
-  
-  .game-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    border-color: #ffd700;
-    box-shadow: 0 15px 40px rgba(255, 215, 0, 0.15);
-  }
-  
-  /* ===== عکس بازی با نمایش کامل ===== */
-  .game-image-wrapper {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    background: #0d0d1a;
-  }
-  
-  .game-image-wrapper img {
-    width: 100%;
-    height: 200px;
-    object-fit: contain;
-    display: block;
-    background: #0d0d1a;
-    border-bottom: 2px solid #2a2a4a;
-  }
-  
-  .game-image-title {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
-    color: #fff;
-    padding: 30px 15px 12px 15px;
-    font-size: 20px;
-    font-weight: 800;
-    text-align: center;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
-    pointer-events: none;
-  }
-  
-  .game-genre {
-    text-align: center;
-    font-size: 12px;
-    color: #aaa;
-    margin: 8px 0 5px 0;
-  }
-  
-  .game-preview {
-    padding: 0 15px 18px 15px;
-    color: #aaa;
-    font-size: 13px;
-    text-align: center;
-    line-height: 1.5;
-  }
-  
-  .game-full {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    padding: 0 18px;
-    background: #0f0f23;
-    border-top: 3px solid #ffd700;
-    color: #d0d0e0;
-    font-size: 14px;
-    line-height: 1.9;
-  }
-  
-  .game-full.show {
-    max-height: 650px;
-    padding: 18px 18px 20px 18px;
-  }
-  
-  .game-full strong {
-    color: #ffd700;
-  }
-  
-  .game-full .suitable {
-    display: inline-block;
-    background: #ffd70022;
-    padding: 6px 14px;
-    border-radius: 30px;
-    margin-top: 8px;
-    font-size: 13px;
-    color: #ffd700;
-    border: 1px solid #ffd70044;
-  }
-  
-  /* ===== رنگ‌بندی بر اساس ژانر ===== */
-  .game-card.genre-action { border-color: #e74c3c; }
-  .game-card.genre-adventure { border-color: #2ecc71; }
-  .game-card.genre-rpg { border-color: #9b59b6; }
-  .game-card.genre-fps { border-color: #e67e22; }
-  .game-card.genre-moba { border-color: #1abc9c; }
-  .game-card.genre-social { border-color: #f39c12; }
-  
-  /* ===== دکمه بستن ===== */
-  .close-btn {
-    display: inline-block;
-    margin-top: 12px;
-    padding: 6px 20px;
-    background: #ff4444;
-    color: #fff;
-    border: none;
-    border-radius: 30px;
-    font-size: 13px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  .close-btn:hover {
-    background: #ff6666;
-    transform: scale(1.05);
-  }
-  
-  /* ========================================== */
-  /* ====== کارت اصلی چالش (بازشو) ====== */
-  /* ========================================== */
-  
-  .challenge-main-card {
-    background: linear-gradient(145deg, #1a1a2e, #16213e);
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
-    border: 1px solid #2a2a4a;
-    max-width: 850px;
-    margin: 0 auto;
-    transition: 0.3s;
-  }
-  
-  .challenge-main-card:hover {
-    border-color: #ffd70044;
-  }
-  
-  /* ===== هدر کارت (قابل کلیک) ===== */
-  .challenge-header-card {
-    padding: 20px 25px;
-    cursor: pointer;
-    transition: 0.3s;
-    border-bottom: 1px solid #2a2a4a;
-  }
-  
-  .challenge-header-card:hover {
-    background: rgba(255, 215, 0, 0.05);
-  }
-  
-  .challenge-header-content {
-    display: flex;
-    align-items: center;
     gap: 15px;
   }
   
-  .challenge-icon {
-    font-size: 40px;
-    flex-shrink: 0;
-  }
-  
-  .challenge-header-content h3 {
-    color: #ffd700;
-    font-size: 22px;
-    margin: 0;
-  }
-  
-  .challenge-header-content p {
-    color: #aaa;
-    font-size: 14px;
-    margin: 3px 0 0 0;
-  }
-  
-  .challenge-arrow {
-    margin-right: auto;
-    font-size: 24px;
-    color: #ffd700;
-    transition: 0.3s;
-  }
-  
-  html[dir="ltr"] .challenge-arrow {
-    margin-right: 0;
-    margin-left: auto;
-  }
-  
-  /* ===== بدنه کارت (سوالات) ===== */
-  .challenge-body-card {
-    padding: 25px;
-    animation: fadeIn 0.4s ease;
-  }
-  
-  /* ========================================== */
-  /* ====== بخش چالش هفتگی ====== */
-  /* ========================================== */
-  
-  .section-challenge {
-    padding: 20px 0 50px 0;
-  }
-  
-  .question-box {
-    background: #0d0d1a;
-    border-radius: 14px;
-    padding: 18px 20px;
-    margin-bottom: 16px;
-    border: 1px solid #2a2a4a;
-    transition: 0.3s;
-  }
-  
-  .question-box:hover {
-    border-color: #ffd70044;
-  }
-  
-  .question-text {
-    color: #fff;
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 12px;
-  }
-  
-  .options {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-  
-  .option {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    color: #ccc;
-    font-size: 14px;
-    cursor: pointer;
-    padding: 6px 14px;
-    border-radius: 30px;
-    background: #1a1a2e;
-    border: 1px solid #2a2a4a;
-    transition: 0.3s;
-  }
-  
-  .option:hover {
-    background: #2a2a4a;
-    border-color: #ffd70044;
-  }
-  
-  .option input[type="radio"] {
-    accent-color: #ffd700;
-    width: 16px;
-    height: 16px;
-    cursor: pointer;
-  }
-  
-  .option:has(input:checked) {
-    background: #ffd70022;
-    border-color: #ffd700;
-    color: #ffd700;
-  }
-  
-  .btn-submit-quiz {
-    width: 100%;
-    padding: 16px;
-    background: linear-gradient(135deg, #ffd700, #f0a500);
-    color: #0d0d1a;
-    border: none;
-    border-radius: 50px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-    margin-top: 10px;
-  }
-  
-  .btn-submit-quiz:hover {
-    transform: scale(1.02);
-    box-shadow: 0 0 30px #ffd70044;
-  }
-  
-  .quiz-result {
-    margin-top: 30px;
-    animation: fadeIn 0.6s ease;
-  }
-  
-  .result-box {
-    background: linear-gradient(145deg, #1a1a2e, #0d0d1a);
-    border-radius: 20px;
-    padding: 30px 25px;
-    text-align: center;
-    border: 2px solid #ffd70044;
-  }
-  
-  .result-emoji {
-    font-size: 60px;
-    margin-bottom: 10px;
-  }
-  
-  .result-score {
-    color: #ffd700;
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .result-level {
-    color: #fff;
-    font-size: 22px;
-    font-weight: 800;
-    margin-bottom: 12px;
-  }
-  
-  .result-message {
-    color: #ccc;
-    font-size: 16px;
-    line-height: 1.8;
-    max-width: 500px;
-    margin: 0 auto 20px auto;
-  }
-  
-  .btn-retry {
-    padding: 10px 35px;
-    background: transparent;
-    color: #ffd700;
-    border: 2px solid #ffd700;
-    border-radius: 50px;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  .btn-retry:hover {
-    background: #ffd700;
-    color: #0d0d1a;
-    transform: scale(1.05);
-  }
-  
-  /* ========================================== */
-  /* ====== بخش جوایز ====== */
-  /* ========================================== */
-  
-  .section-rewards {
-    padding: 20px 0 50px 0;
-  }
-  
-  .rewards-desc {
-    text-align: center;
-    color: #aaa;
-    font-size: 16px;
-    margin-bottom: 30px;
-  }
-  
-  /* ===== کارت جوایز ===== */
-  .reward-card {
-    background: linear-gradient(145deg, #1a1a2e, #16213e);
-    border-radius: 20px;
-    padding: 30px 25px;
-    text-align: center;
-    border: 2px solid #2a2a4a;
-    transition: 0.4s ease;
-    max-width: 500px;
-    margin: 0 auto;
-  }
-  
-  .reward-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  }
-  
-  .reward-card .reward-icon {
-    font-size: 60px;
-    margin-bottom: 10px;
-  }
-  
-  .reward-card .reward-title {
-    color: #fff;
-    font-size: 24px;
-    font-weight: 800;
-    margin-bottom: 5px;
-  }
-  
-  .reward-card .reward-score {
-    color: #888;
-    font-size: 15px;
-    margin-bottom: 12px;
-  }
-  
-  .reward-card .reward-desc {
-    color: #ccc;
-    font-size: 15px;
-    line-height: 1.7;
-    margin-bottom: 15px;
-  }
-  
-  /* ===== رنگ‌های کارت جوایز ===== */
-  .reward-card.reward-very-high {
-    border-color: #ffd700;
-    background: linear-gradient(145deg, #1a1a2e, #2a1a3e);
-  }
-  
-  .reward-card.reward-high {
-    border-color: #2ecc71;
-    background: linear-gradient(145deg, #1a1a2e, #0d2a1a);
-  }
-  
-  .reward-card.reward-mid {
-    border-color: #3498db;
-    background: linear-gradient(145deg, #1a1a2e, #0d1a2a);
-  }
-  
-  .reward-card.reward-low {
-    border-color: #e67e22;
-    background: linear-gradient(145deg, #1a1a2e, #2a1a0d);
-  }
-  
-  .rewards-note {
-    text-align: center;
-    background: #1a1a2e;
-    padding: 25px;
-    border-radius: 14px;
-    max-width: 500px;
-    margin: 30px auto 0 auto;
-    border: 1px solid #2a2a4a;
-  }
-  
-  .rewards-note p {
-    color: #aaa;
-    font-size: 15px;
-    margin: 5px 0;
-  }
-  
-  .rewards-note a {
-    color: #ffd700;
-    font-weight: bold;
-  }
-  
-  /* ========================================== */
-  /* ====== نظرات ====== */
-  /* ========================================== */
-  
-  .comment-form {
-    background: #1a1a2e;
-    padding: 25px;
-    border-radius: 16px;
-    margin-top: 30px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    border: 1px solid #2a2a4a;
-  }
-  
-  .comment-form h3 {
-    color: #fff;
-    margin-bottom: 15px;
-  }
-  
-  .comment-form textarea {
-    width: 100%;
-    padding: 12px;
-    border-radius: 10px;
-    border: 2px solid #2a2a4a;
-    background: #0d0d1a;
-    color: #fff;
-    font-size: 15px;
-    resize: vertical;
-    font-family: inherit;
-    transition: 0.3s;
-  }
-  
-  .comment-form textarea:focus {
-    outline: none;
-    border-color: #ffd700;
-  }
-  
-  .btn-submit-comment {
-    margin-top: 12px;
-    padding: 12px 35px;
-    background: linear-gradient(135deg, #ffd700, #f0a500);
-    color: #0d0d1a;
-    border: none;
-    border-radius: 50px;
-    font-weight: bold;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  .btn-submit-comment:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 30px #ffd70044;
-  }
-  
-  #commentsContainer {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .comment-item {
-    background: #1a1a2e;
-    padding: 18px 20px;
-    border-radius: 12px;
-    margin-bottom: 15px;
-    border-left: 4px solid #ffd700;
-    transition: 0.3s;
-    animation: fadeIn 0.4s ease;
-  }
-  
-  html[dir="ltr"] .comment-item {
-    border-left: none;
-    border-right: 4px solid #ffd700;
-  }
-  
-  .comment-item:hover {
-    background: #22224a;
-  }
-  
-  .comment-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 8px;
-  }
-  
-  .comment-name {
-    color: #ffd700;
-    font-weight: bold;
-    font-size: 17px;
-  }
-  
-  .comment-date {
-    color: #888;
-    font-size: 12px;
-  }
-  
-  .comment-text {
-    color: #ddd;
-    font-size: 15px;
-    line-height: 1.7;
-    margin: 5px 0 12px 0;
-  }
-  
-  .comment-reply-btn {
-    background: transparent;
-    color: #aaa;
-    border: 1px solid #444;
-    padding: 4px 16px;
-    border-radius: 20px;
-    font-size: 12px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  .comment-reply-btn:hover {
-    border-color: #ffd700;
-    color: #ffd700;
-  }
-  
-  .replies-container {
-    margin-left: 30px;
-    margin-top: 12px;
-    padding-left: 15px;
-    border-left: 2px dashed #444;
-  }
-  
-  html[dir="ltr"] .replies-container {
-    margin-left: 0;
-    margin-right: 30px;
-    padding-left: 0;
-    padding-right: 15px;
-    border-left: none;
-    border-right: 2px dashed #444;
-  }
-  
-  .reply-item {
-    background: #111125;
-    padding: 12px 16px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    border-left: 3px solid #f39c12;
-  }
-  
-  html[dir="ltr"] .reply-item {
-    border-left: none;
-    border-right: 3px solid #f39c12;
-  }
-  
-  .reply-item .comment-name {
-    color: #f39c12;
-    font-size: 14px;
-  }
-  
-  .empty-message {
-    color: #888;
-    text-align: center;
-    padding: 30px;
-    background: #1a1a2e;
-    border-radius: 12px;
-    border: 1px dashed #444;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  /* ========================================== */
-  /* ====== مودال ثبت‌نام ====== */
-  /* ========================================== */
-  
-  .modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.85);
-    z-index: 9999;
+  nav ul {
     justify-content: center;
-    align-items: center;
-    animation: fadeIn 0.4s ease;
   }
   
-  .modal.show {
-    display: flex;
+  nav ul li a {
+    padding: 6px 12px;
+    font-size: 13px;
   }
   
-  @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
-  }
-  
-  .modal-content {
-    background: linear-gradient(145deg, #1a1a2e, #16213e);
-    border-radius: 24px;
-    padding: 35px 30px;
-    max-width: 450px;
-    width: 95%;
-    border: 2px solid #ffd70044;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
-  }
-  
-  .modal-header {
-    text-align: center;
-    margin-bottom: 25px;
-  }
-  
-  .modal-header h2 {
-    color: #ffd700;
+  .slide-content h1 {
     font-size: 28px;
-    margin-bottom: 5px;
   }
   
-  .modal-header p {
-    color: #aaa;
-    font-size: 14px;
-  }
-  
-  .form-group {
-    margin-bottom: 18px;
-  }
-  
-  .form-group label {
-    display: block;
-    color: #ccc;
-    font-size: 14px;
-    margin-bottom: 6px;
-    font-weight: 500;
-  }
-  
-  .form-group input {
-    width: 100%;
-    padding: 12px 16px;
-    border-radius: 12px;
-    border: 2px solid #2a2a4a;
-    background: #0d0d1a;
-    color: #fff;
+  .slide-content p {
     font-size: 15px;
-    transition: 0.3s;
-    box-sizing: border-box;
   }
   
-  .form-group input:focus {
-    outline: none;
-    border-color: #ffd700;
-    box-shadow: 0 0 20px #ffd70022;
+  .slide-content .btn-gold {
+    padding: 10px 30px;
+    font-size: 14px;
   }
   
-  .avatar-select {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 5px 0;
-  }
-  
-  .avatar-option {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: #0d0d1a;
-    border: 3px solid #2a2a4a;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 28px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  .avatar-option:hover {
-    transform: scale(1.1);
-    border-color: #ffd70088;
-  }
-  
-  .avatar-option.active {
-    border-color: #ffd700;
-    box-shadow: 0 0 25px #ffd70044;
-  }
-  
-  .btn-submit-user {
-    width: 100%;
-    padding: 14px;
-    background: linear-gradient(135deg, #ffd700, #f0a500);
-    color: #0d0d1a;
-    border: none;
-    border-radius: 50px;
+  .slider-btn {
+    padding: 10px 14px;
     font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-    margin-top: 5px;
   }
   
-  .btn-submit-user:hover {
-    transform: scale(1.02);
-    box-shadow: 0 0 30px #ffd70044;
+  .slider-btn.prev {
+    left: 10px;
   }
   
-  /* ========================================== */
-  /* ====== صفحات درباره ما و حریم خصوصی ====== */
-  /* ========================================== */
+  .slider-btn.next {
+    right: 10px;
+  }
   
-  .page-title {
-    font-size: 32px;
-    color: #ffd700;
-    text-align: center;
-    margin: 40px 0 30px 0;
+  .text-slide h2 {
+    font-size: 24px;
+  }
+  
+  .text-slide p {
+    font-size: 14px;
+  }
+  
+  .text-slider-container {
+    height: 80px;
   }
   
   .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: center;
-    max-width: 1000px;
-    margin: 0 auto;
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
   
-  .about-image img {
+  .game-card {
     width: 100%;
-    border-radius: 18px;
-    border: 2px solid #2a2a4a;
+    max-width: 350px;
   }
   
-  .about-text h2 {
-    color: #ffd700;
-    font-size: 22px;
-    margin-top: 20px;
-    margin-bottom: 10px;
+  .game-image-wrapper img {
+    height: 160px;
   }
   
-  .about-text p {
-    color: #ccc;
-    font-size: 15px;
-    line-height: 1.8;
+  .news-image-wrapper img {
+    height: 160px;
   }
   
-  .about-text ul {
-    list-style: none;
-    padding: 0;
+  .news-title {
+    font-size: 17px;
   }
   
-  .about-text ul li {
-    padding: 5px 0;
-    color: #ddd;
-    font-size: 15px;
+  .section-title {
+    font-size: 24px;
+  }
+
+  #userStatus {
+    top: 70px;
+    left: 10px;
   }
   
-  .privacy-box {
-    background: #1a1a2e;
-    padding: 20px 25px;
-    border-radius: 14px;
-    margin-bottom: 18px;
-    border-right: 4px solid #ffd700;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+  html[dir="ltr"] #userStatus {
+    left: auto;
+    right: 10px;
   }
   
-  html[dir="ltr"] .privacy-box {
-    border-right: none;
-    border-left: 4px solid #ffd700;
+  .user-status-box {
+    padding: 10px 14px;
+    font-size: 13px;
   }
   
-  .privacy-box h2 {
-    color: #ffd700;
-    font-size: 18px;
-    margin-bottom: 8px;
+  .user-avatar-big {
+    font-size: 24px;
   }
   
-  .privacy-box p {
-    color: #ccc;
-    font-size: 15px;
-    line-height: 1.8;
-  }
-  
-  .privacy-contact {
-    text-align: center;
-    background: #1a1a2e;
-    padding: 25px;
-    border-radius: 14px;
-    max-width: 500px;
-    margin: 30px auto;
-    border: 1px solid #ffd70044;
-  }
-  
-  .privacy-contact p {
-    color: #ccc;
-    font-size: 16px;
-  }
-  
-  /* ========================================== */
-  /* ====== فوتر با امضا ====== */
-  /* ========================================== */
-  
-  footer {
-    background: #0a0a16;
-    border-top: 2px solid #1a1a2e;
-    padding: 30px 0 15px 0;
-    margin-top: 60px;
+  .lang-btn {
+    font-size: 12px;
+    padding: 4px 12px;
   }
   
   .footer-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #1a1a2e;
-  }
-  
-  .footer-left {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  
-  .footer-signature {
-    height: 50px;
-    width: auto;
-    opacity: 0.8;
-    transition: 0.3s;
-  }
-  
-  .footer-signature:hover {
-    opacity: 1;
-    transform: scale(1.05);
+    flex-direction: column;
+    text-align: center;
   }
   
   .footer-right {
-    text-align: left;
-  }
-  
-  html[dir="rtl"] .footer-right {
-    text-align: right;
+    text-align: center !important;
   }
   
   .footer-phrase {
-    color: #ddd;
+    font-size: 14px;
+  }
+  
+  .footer-signature {
+    height: 35px;
+  }
+  
+  .challenge-header-content h3 {
+    font-size: 18px;
+  }
+  
+  .challenge-icon {
+    font-size: 30px;
+  }
+  
+  .challenge-header-card {
+    padding: 15px 18px;
+  }
+  
+  .challenge-body-card {
+    padding: 15px;
+  }
+  
+  .question-text {
+    font-size: 14px;
+  }
+  
+  .option {
+    font-size: 12px;
+    padding: 4px 10px;
+  }
+  
+  .options {
+    gap: 8px;
+  }
+  
+  .result-emoji {
+    font-size: 40px;
+  }
+  
+  .result-score {
+    font-size: 20px;
+  }
+  
+  .result-level {
+    font-size: 18px;
+  }
+  
+  .reward-card {
+    padding: 20px 18px;
+  }
+  
+  .reward-card .reward-icon {
+    font-size: 40px;
+  }
+  
+  .reward-card .reward-title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .footer-phrase {
+    font-size: 12px;
+  }
+  
+  .text-slide h2 {
+    font-size: 20px;
+  }
+  
+  .text-slider-container {
+    height: 70px;
+  }
+  
+  .footer-signature {
+    height: 28px;
+  }
+  
+  .game-image-wrapper img {
+    height: 130px;
+  }
+  
+  .news-image-wrapper img {
+    height: 130px;
+  }
+  
+  .game-image-title {
     font-size: 16px;
-    font-style: italic;
-    letter-spacing: 0.5px;
-    margin-bottom: 2px;
+    padding: 20px 10px 8px 10px;
   }
   
-  .footer-established {
-    color: #666;
-    font-size: 11px;
-    letter-spacing: 1px;
+  .news-image-title {
+    font-size: 14px;
+    padding: 20px 10px 8px 10px;
   }
   
-  .footer-bottom {
-    text-align: center;
-    padding-top: 15px;
+  .challenge-header-content h3 {
+    font-size: 16px;
   }
   
-  .footer-bottom p {
-    color: #666;
-    font-size: 13px;
-    margin: 3px 0;
+  .challenge-icon {
+    font-size: 24px;
   }
-  
-  .footer-bottom strong {
-    color: #ffd700;
-  }
-  
-  /* ========================================== */
-  /* ====== ریسپانسیو ====== */
-  /* ========================================== */
-  
-  @media (max-width: 768px) {
-    .header-flex {
-      flex-direction: column;
-      gap: 15px;
-    }
-    
-    nav ul {
-      justify-content: center;
-    }
-    
-    nav ul li a {
-      padding: 6px 12px;
-      font-size: 13px;
-    }
-    
-    .banner-slider {
-      height: 350px;
-    }
-    
-    .slide-content h1 {
-      font-size: 28px;
-    }
-    
-    .slide-content p {
-      font-size: 15px;
-    }
-    
-    .slide-content .btn-gold {
-      padding: 10px 30px;
-      font-size: 14px;
-    }
-    
-    .slider-btn {
-      padding: 10px 14px;
-      font-size: 18px;
-    }
-    
-    .slider-btn.prev {
-      left: 10px;
-    }
-    
-    .slider-btn.next {
-      right: 10px;
-    }
-    
-    .text-slide h2 {
-      font-size: 24px;
-    }
-    
-    .text-slide p {
-      font-size: 14px;
-    }
-    
-    .text-slider-container {
-      height: 80px;
-    }
-    
-    .about-grid {
-      grid-template-columns: 1fr;
-      gap: 20px;
-    }
-    
-    .game-card {
-      width: 100%;
-      max-width: 350px;
-    }
-    
-    .game-image-wrapper img {
-      height: 160px;
-    }
-    
-    .news-image-wrapper img {
-      height: 160px;
-    }
-    
-    .news-title {
-      font-size: 17px;
-    }
-    
-    .section-title {
-      font-size: 24px;
-    }
-  
-    #userStatus {
-      top: 70px;
-      left: 10px;
-    }
-    
-    html[dir="ltr"] #userStatus {
-      left: auto;
-      right: 10px;
-    }
-    
-    .user-status-box {
-      padding: 10px 14px;
-      font-size: 13px;
-    }
-    
-    .user-avatar-big {
-      font-size: 24px;
-    }
-    
-    .lang-btn {
-      font-size: 12px;
-      padding: 4px 12px;
-    }
-    
-    .footer-flex {
-      flex-direction: column;
-      text-align: center;
-    }
-    
-    .footer-right {
-      text-align: center !important;
-    }
-    
-    .footer-phrase {
-      font-size: 14px;
-    }
-    
-    .footer-signature {
-      height: 35px;
-    }
-    
-    /* ===== ریسپانسیو کارت چالش ===== */
-    .challenge-header-content h3 {
-      font-size: 18px;
-    }
-    
-    .challenge-icon {
-      font-size: 30px;
-    }
-    
-    .challenge-header-card {
-      padding: 15px 18px;
-    }
-    
-    .challenge-body-card {
-      padding: 15px;
-    }
-    
-    .question-text {
-      font-size: 14px;
-    }
-    
-    .option {
-      font-size: 12px;
-      padding: 4px 10px;
-    }
-    
-    .options {
-      gap: 8px;
-    }
-    
-    .result-emoji {
-      font-size: 40px;
-    }
-    
-    .result-score {
-      font-size: 20px;
-    }
-    
-    .result-level {
-      font-size: 18px;
-    }
-    
-    .reward-card {
-      padding: 20px 18px;
-    }
-    
-    .reward-card .reward-icon {
-      font-size: 40px;
-    }
-    
-    .reward-card .reward-title {
-      font-size: 20px;
-    }
-  }
-  
-  @media (max-width: 400px) {
-    .footer-phrase {
-      font-size: 12px;
-    }
-    
-    .text-slide h2 {
-      font-size: 20px;
-    }
-    
-    .text-slider-container {
-      height: 70px;
-    }
-    
-    .footer-signature {
-      height: 28px;
-    }
-    
-    .game-image-wrapper img {
-      height: 130px;
-    }
-    
-    .news-image-wrapper img {
-      height: 130px;
-    }
-    
-    .game-image-title {
-      font-size: 16px;
-      padding: 20px 10px 8px 10px;
-    }
-    
-    .news-image-title {
-      font-size: 14px;
-      padding: 20px 10px 8px 10px;
-    }
-    
-    .challenge-header-content h3 {
-      font-size: 16px;
-    }
-    
-    .challenge-icon {
-      font-size: 24px;
-    }
-  }
+}
