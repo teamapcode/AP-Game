@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>حریم خصوصی | AP Game</title>
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="container header-flex">
+      <div class="logo">
+        <img src="images/logo-apgame.jpg" alt="لوگو AP Game" onerror="this.src='https://via.placeholder.com/50x50/1a1a2e/ffd700?text=AP'">
+        <span class="logo-text">AP Game</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html" data-key="nav-home">🏠 خانه</a></li>
+          <li><a href="news.html" data-key="nav-news">📰 اخبار</a></li>
+          <li><a href="games.html" data-key="nav-games">🎮 بازی‌ها</a></li>
+          <li><a href="challenge.html" data-key="nav-challenge">🏆 چالش</a></li>
+          <li><a href="rewards.html" data-key="nav-rewards">🎁 جوایز</a></li>
+          <li><a href="about.html" data-key="nav-about">📖 درباره ما</a></li>
+          <li><a href="privacy.html" class="active" data-key="nav-privacy">🔒 حریم خصوصی</a></li>
+        </ul>
+      </nav>
+      <button class="lang-btn" onclick="toggleLanguage()">🌐 English</button>
+    </div>
+  </header>
+
+  <div id="userStatus" style="display:none;">
+    <div class="user-status-box">
+      <span id="userAvatarDisplay" class="user-avatar-big">😎</span>
+      <div>
+        <div id="userNameDisplay" class="user-name-display">علی رضایی</div>
+        <div id="userPhoneDisplay" class="user-phone-display">۰۹۱۲۳۴۵۶۷۸۹</div>
+      </div>
+      <button class="logout-btn" onclick="logoutUser()" data-key="logout">🚪</button>
+    </div>
+  </div>
+
+  <section class="page-privacy">
+    <div class="container">
+      <h1 class="page-title" data-key="privacy-title">🔒 حریم خصوصی</h1>
+      <p style="color:#888; text-align:center; margin-bottom:30px;" data-key="privacy-date">آخرین بروزرسانی: خرداد ۱۴۰۵</p>
+
+      <div class="privacy-box">
+        <h2 data-key="privacy-1-title">📌 ۱. اطلاعات ذخیره‌شده</h2>
+        <p data-key="privacy-1-text">ما تنها اطلاعاتی را ذخیره می‌کنیم که شما داوطلبانه وارد می‌کنید (مانند ایمیل برای خبرنامه). کوکی‌ها (Cookies) صرفاً برای بهبود تجربه کاربری و ذخیره تنظیمات نمایش استفاده می‌شوند.</p>
+      </div>
+
+      <div class="privacy-box">
+        <h2 data-key="privacy-2-title">🛡️ ۲. اشتراک‌گذاری داده</h2>
+        <p data-key="privacy-2-text">اطلاعات شما هرگز به هیچ شخص ثالثی فروخته یا اجاره داده نمی‌شود، مگر در مواردی که طبق قانون الزامی باشد.</p>
+      </div>
+
+      <div class="privacy-box">
+        <h2 data-key="privacy-3-title">🔐 ۳. امنیت</h2>
+        <p data-key="privacy-3-text">تمام ارتباطات شما با سایت از طریق پروتکل SSL رمزگذاری می‌شود تا اطلاعات شما در برابر حملات سایبری محافظت شود.</p>
+      </div>
+
+      <div class="privacy-box">
+        <h2 data-key="privacy-4-title">🗑️ ۴. حق حذف اطلاعات</h2>
+        <p data-key="privacy-4-text">شما در هر لحظه می‌توانید با ارسال درخواست به ایمیل ما، تمام داده‌های خود را از سیستم پاک کنید.</p>
+      </div>
+
+      <div class="privacy-contact">
+        <p data-key="privacy-contact">📧 برای هرگونه سوال درباره حریم خصوصی، با ما تماس بگیرید:</p>
+        <p style="color:#ffd700;">support.apgame@gmail.com</p>
+      </div>
+    </div>
+  </section>
+
+ <!-- ====== فوتر ====== -->
+<footer>
+  <div class="container footer-flex">
+    <div class="footer-left">
+      <a href="https://teamapcode.github.io/my-small-site/" target="_blank">
+        <img src="images/signature.jpg" alt="امضا" class="footer-signature" onerror="this.style.display='none'">
+      </a>
+    </div>
+    <div class="footer-right">
+      <p class="footer-phrase" data-key="footer-phrase">🎮 بازی تنها زندگی در رویا نیست، بلکه سفری‌ست به جایی فراتر از واقعیت.</p>
+      <p class="footer-established" data-key="footer-established">تأسیس: ۱۴۰۵/۲۰۲۶</p>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p data-key="footer-copy">© ۱۴۰۵ تمامی حقوق برای <strong>AP Game</strong> محفوظ است.</p>
+    <p data-key="footer-love">ساخته شده با ❤️ برای جامعه گیمینگ ایران</p>
+  </div>
+</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

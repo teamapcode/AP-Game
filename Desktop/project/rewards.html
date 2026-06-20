@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جوایز | AP Game</title>
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="container header-flex">
+      <div class="logo">
+        <img src="images/logo-apgame.jpg" alt="لوگو AP Game" onerror="this.src='https://via.placeholder.com/50x50/1a1a2e/ffd700?text=AP'">
+        <span class="logo-text">AP Game</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html" data-key="nav-home">🏠 خانه</a></li>
+          <li><a href="news.html" data-key="nav-news">📰 اخبار</a></li>
+          <li><a href="games.html" data-key="nav-games">🎮 بازی‌ها</a></li>
+          <li><a href="challenge.html" data-key="nav-challenge">🏆 چالش</a></li>
+          <li><a href="rewards.html" class="active" data-key="nav-rewards">🎁 جوایز</a></li>
+          <li><a href="about.html" data-key="nav-about">📖 درباره ما</a></li>
+          <li><a href="privacy.html" data-key="nav-privacy">🔒 حریم خصوصی</a></li>
+        </ul>
+      </nav>
+      <button class="lang-btn" onclick="toggleLanguage()">🌐 English</button>
+    </div>
+  </header>
+
+  <div id="userStatus" style="display:none;">
+    <div class="user-status-box">
+      <span id="userAvatarDisplay" class="user-avatar-big">😎</span>
+      <div>
+        <div id="userNameDisplay" class="user-name-display">علی رضایی</div>
+        <div id="userPhoneDisplay" class="user-phone-display">۰۹۱۲۳۴۵۶۷۸۹</div>
+      </div>
+      <button class="logout-btn" onclick="logoutUser()" data-key="logout">🚪</button>
+    </div>
+  </div>
+
+  <section class="section-rewards">
+    <div class="container">
+      <h2 class="section-title" data-key="rewards-title">🎁 جوایز شما</h2>
+      <p class="rewards-desc" data-key="rewards-desc">نتیجه چالش‌های شما در زیر نمایش داده می‌شود 🏆</p>
+
+      <!-- ===== کارت برد بازی حدس عدد ===== -->
+      <div id="gameWinCard" class="reward-card reward-very-high" style="display:none; max-width:500px; margin: 0 auto 25px auto;">
+        <div class="reward-icon">🏆</div>
+        <h3 class="reward-title">🎊 شما برنده شدید!</h3>
+        <div class="reward-score" id="gameWinInfo">عدد ۷ رو در ۳ تلاش حدس زدید!</div>
+        <p class="reward-desc">تبریک! شما در بازی حدس عدد برنده شدید. این کارت مخصوص شماست! 🎉</p>
+      </div>
+
+      <!-- ===== کارت نتیجه آزمون ===== -->
+      <div id="userResultCard" class="reward-card" style="display:none; max-width:500px; margin: 0 auto;">
+        <div class="reward-icon" id="resultEmoji">🏆</div>
+        <h3 class="reward-title" id="resultLevel">سطح: ---</h3>
+        <div class="reward-score" id="resultScore">امتیاز: ۰</div>
+        <p class="reward-desc" id="resultMessage">پیام شما</p>
+      </div>
+
+      <!-- ===== اگر هیچ چالشی انجام نداده ===== -->
+      <div id="noResultMessage" class="rewards-note" style="display:block;">
+        <p>😊 هنوز در چالش‌ها شرکت نکرده‌اید!</p>
+        <p>برای دریافت جایزه، به <a href="challenge.html" style="color:#ffd700;">چالش‌های هفتگی</a> بروید.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ====== فوتر ====== -->
+<footer>
+  <div class="container footer-flex">
+    <div class="footer-left">
+      <a href="https://teamapcode.github.io/my-small-site/" target="_blank">
+        <img src="images/signature.jpg" alt="امضا" class="footer-signature" onerror="this.style.display='none'">
+      </a>
+    </div>
+    <div class="footer-right">
+      <p class="footer-phrase" data-key="footer-phrase">🎮 بازی تنها زندگی در رویا نیست، بلکه سفری‌ست به جایی فراتر از واقعیت.</p>
+      <p class="footer-established" data-key="footer-established">تأسیس: ۱۴۰۵/۲۰۲۶</p>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p data-key="footer-copy">© ۱۴۰۵ تمامی حقوق برای <strong>AP Game</strong> محفوظ است.</p>
+    <p data-key="footer-love">ساخته شده با ❤️ برای جامعه گیمینگ ایران</p>
+  </div>
+</footer>
+
+  <script src="script.js"></script>
+  <script>
+    // ===== نمایش کارت برد بازی =====
+    (function showGameWin() {
+      const win = localStorage.getItem('gameWin');
+      const card = document.getElementById('gameWinCard');
+      if (win && card) {
+        const data = JSON.parse(win);
+        if (data.won) {
+          card.style.display = 'block';
+          document.getElementById('gameWinInfo').textContent = `عدد ${data.number} رو در ${data.attempts} تلاش حدس زدید!`;
+        }
+      }
+    })();
+
+    // ===== نمایش نتیجه آزمون =====
+    (function showUserReward() {
+      const result = JSON.parse(localStorage.getItem('quizResult'));
+      const card = document.getElementById('userResultCard');
+      const noMsg = document.getElementById('noResultMessage');
+      const winCard = document.getElementById('gameWinCard');
+
+      if (result) {
+        card.style.display = 'block';
+        noMsg.style.display = 'none';
+
+        const score = result.score;
+        let cardClass = '';
+
+        if (score >= 34) cardClass = 'reward-very-high';
+        else if (score >= 26) cardClass = 'reward-high';
+        else if (score >= 18) cardClass = 'reward-mid';
+        else cardClass = 'reward-low';
+
+        card.className = 'reward-card ' + cardClass;
+
+        document.getElementById('resultEmoji').textContent = result.emoji || '🏆';
+        document.getElementById('resultLevel').textContent = result.level || '---';
+        document.getElementById('resultScore').textContent = 'امتیاز: ' + result.score + ' از 40';
+        document.getElementById('resultMessage').textContent = result.message || '';
+
+      } else if (!win || !JSON.parse(win).won) {
+        // اگر هیچ نتیجه‌ای نبود و برد هم نبود
+        card.style.display = 'none';
+        noMsg.style.display = 'block';
+      } else {
+        // اگر برد بود ولی آزمون نبود
+        noMsg.style.display = 'none';
+      }
+    })();
+  </script>
+
+</body>
+</html>
