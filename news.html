@@ -150,65 +150,69 @@
 </footer>
 
 <script>
-  // ===== بارگذاری اخبار از localStorage =====
-  function loadNewsFromStorage() {
-    var container = document.querySelector('.news-grid');
-    if (!container) {
-      console.log('⚠️ عنصر .news-grid پیدا نشد!');
-      return;
-    }
+  // ===== بارگذاری اخبار از گیت‌هاب =====
+  async function loadNewsFromGitHub() {
+    const container = document.querySelector('.news-grid');
+    if (!container) return;
 
-    var newsData = JSON.parse(localStorage.getItem('newsList')) || [];
-    console.log('📰 تعداد اخبار:', newsData.length);
-    
-    if (newsData.length === 0) {
-      container.innerHTML = '<p style="color:#888; text-align:center; padding:40px;">📭 هنوز خبری ثبت نشده است.</p>';
-      return;
-    }
+    try {
+      const response = await fetch('data/news.json');
+      if (!response.ok) {
+        container.innerHTML = '<p style="color:#888; text-align:center; padding:40px;">📭 خبری یافت نشد.</p>';
+        return;
+      }
+      const newsData = await response.json();
+      
+      if (newsData.length === 0) {
+        container.innerHTML = '<p style="color:#888; text-align:center; padding:40px;">📭 هنوز خبری ثبت نشده است.</p>';
+        return;
+      }
 
-    var html = '';
-    for (var i = 0; i < newsData.length; i++) {
-      var item = newsData[i];
-      html += '<div class="news-card" onclick="toggleNews(this)">';
-      html += '<div class="news-image-wrapper">';
-      html += '<img src="' + item.image + '" alt="' + item.title + '" onerror="this.src=\'https://via.placeholder.com/600x300/1a1a2e/ffd700?text=خبر\'">';
-      html += '<div class="news-image-title">' + (item.badge || '📰 خبر') + '</div>';
-      html += '</div>';
-      html += '<div class="news-content">';
-      html += '<span class="news-badge">' + (item.badge || '📰 خبر') + '</span>';
-      html += '<h3 class="news-title">' + item.title + '</h3>';
-      html += '<p class="news-preview">' + item.preview + '</p>';
-      html += '<div class="news-meta">';
-      html += '<span class="news-date">📅 ' + (item.date || 'تاریخ نامشخص') + '</span>';
-      html += '<span class="news-readmore">📖 ادامه مطلب</span>';
-      html += '</div>';
-      html += '</div>';
-      html += '<div class="news-full">';
-      html += '<p>' + (item.full ? item.full.replace(/\n/g, '<br>') : 'متن کامل موجود نیست') + '</p>';
-      html += '<br><button class="close-btn" onclick="closeNews(this)">✖ بستن</button>';
-      html += '</div>';
-      html += '</div>';
+      let html = '';
+      for (let i = 0; i < newsData.length; i++) {
+        const item = newsData[i];
+        html += `
+          <div class="news-card" onclick="toggleNews(this)">
+            <div class="news-image-wrapper">
+              <img src="${item.image}" alt="${item.title}" onerror="this.src='https://via.placeholder.com/600x300/1a1a2e/ffd700?text=خبر'">
+              <div class="news-image-title">${item.badge || '📰 خبر'}</div>
+            </div>
+            <div class="news-content">
+              <span class="news-badge">${item.badge || '📰 خبر'}</span>
+              <h3 class="news-title">${item.title}</h3>
+              <p class="news-preview">${item.preview}</p>
+              <div class="news-meta">
+                <span class="news-date">📅 ${item.date || 'تاریخ نامشخص'}</span>
+                <span class="news-readmore">📖 ادامه مطلب</span>
+              </div>
+            </div>
+            <div class="news-full">
+              <p>${(item.full || '').replace(/\n/g, '<br>')}</p>
+              <br><button class="close-btn" onclick="closeNews(this)">✖ بستن</button>
+            </div>
+          </div>
+        `;
+      }
+      container.innerHTML = html;
+    } catch (error) {
+      container.innerHTML = '<p style="color:#ff6b6b; text-align:center; padding:40px;">⚠️ خطا در بارگذاری اخبار</p>';
     }
-    container.innerHTML = html;
   }
 
+  // ===== اجرا =====
+  loadNewsFromGitHub();
+
   function toggleNews(card) {
-    var full = card.querySelector('.news-full');
+    const full = card.querySelector('.news-full');
     if (!full) return;
-    var isOpen = full.classList.contains('show');
-    var allFulls = document.querySelectorAll('.news-full');
-    for (var i = 0; i < allFulls.length; i++) {
-      allFulls[i].classList.remove('show');
-    }
+    const isOpen = full.classList.contains('show');
+    document.querySelectorAll('.news-full').forEach(f => f.classList.remove('show'));
     if (!isOpen) full.classList.add('show');
   }
 
   function closeNews(btn) {
-    var full = btn.closest('.news-full');
+    const full = btn.closest('.news-full');
     if (full) full.classList.remove('show');
     if (window.event) window.event.stopPropagation();
   }
-
-  // ===== اجرا =====
-  loadNewsFromStorage();
 </script>
