@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: #0d0d1a;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  .admin-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    color: #ffd700;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 32px;
+  }
+  
+  .admin-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .tab-btn {
+    padding: 12px 30px;
+    background: #1a1a2e;
+    border: 2px solid #2a2a4a;
+    border-radius: 12px;
+    color: #aaa;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .tab-btn:hover {
+    border-color: #ffd70044;
+    color: #fff;
+  }
+  
+  .tab-btn.active {
+    background: #ffd700;
+    color: #0d0d1a;
+    border-color: #ffd700;
+  }
+  
+  .tab-content {
+    display: none;
+    animation: fadeIn 0.4s ease;
+  }
+  
+  .tab-content.active {
+    display: block;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .tab-content h2 {
+    color: #ffd700;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .admin-form {
+    background: #1a1a2e;
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid #2a2a4a;
+    margin-bottom: 30px;
+  }
+  
+  .admin-form h3 {
+    color: #ffd700;
+    margin-bottom: 15px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    color: #ccc;
+    font-size: 14px;
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+  
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 2px solid #2a2a4a;
+    background: #0d0d1a;
+    color: #fff;
+    font-size: 15px;
+    transition: 0.3s;
+    font-family: inherit;
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: #ffd700;
+    box-shadow: 0 0 20px #ffd70022;
+  }
+  
+  .form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  .btn-save {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #ffd700, #f0a500);
+    color: #0d0d1a;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .btn-save:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 30px #ffd70044;
+  }
+  
+  .admin-list {
+    background: #1a1a2e;
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid #2a2a4a;
+  }
+  
+  .admin-list h3 {
+    color: #ffd700;
+    margin-bottom: 15px;
+  }
+  
+  .admin-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0d0d1a;
+    padding: 12px 16px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #2a2a4a;
+    transition: 0.3s;
+  }
+  
+  .admin-item:hover {
+    border-color: #ffd70044;
+  }
+  
+  .item-preview {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+  }
+  
+  .item-preview img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .item-preview h4 {
+    color: #fff;
+    font-size: 16px;
+  }
+  
+  .item-preview p {
+    color: #aaa;
+    font-size: 13px;
+  }
+  
+  .item-preview small {
+    color: #666;
+    font-size: 12px;
+  }
+  
+  .item-actions {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .item-actions button {
+    padding: 6px 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .item-actions button:first-child {
+    background: #3498db;
+    color: #fff;
+  }
+  
+  .item-actions button:first-child:hover {
+    background: #2980b9;
+  }
+  
+  .item-actions button:last-child {
+    background: #e74c3c;
+    color: #fff;
+  }
+  
+  .item-actions button:last-child:hover {
+    background: #c0392b;
+  }
+  
+  @media (max-width: 650px) {
+    .admin-item {
+      flex-direction: column;
+      gap: 10px;
+      align-items: stretch;
+    }
+    .item-preview img {
+      width: 40px;
+      height: 40px;
+    }
+    .item-actions {
+      justify-content: flex-end;
+    }
+    .tab-btn {
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+  }

@@ -150,5 +150,66 @@
 </footer>
 
   <script src="script.js"></script>
+  <script src="script.js"></script>
+  
+  <script>
+    // ===== بارگذاری اخبار از localStorage =====
+    function loadNewsFromStorage() {
+      const container = document.querySelector('.news-grid');
+      if (!container) return;
+
+      const newsData = JSON.parse(localStorage.getItem('newsList')) || [];
+      
+      if (newsData.length === 0) {
+        container.innerHTML = '<p style="color:#888; text-align:center; padding:40px;">📭 هنوز خبری ثبت نشده است.</p>';
+        return;
+      }
+
+      let html = '';
+      for (let i = 0; i < newsData.length; i++) {
+        const item = newsData[i];
+        html += `
+          <div class="news-card" onclick="toggleNews(this)">
+            <div class="news-image-wrapper">
+              <img src="${item.image}" alt="${item.title}" onerror="this.src='https://via.placeholder.com/600x300/1a1a2e/ffd700?text=خبر'">
+              <div class="news-image-title">${item.badge || '📰 خبر'}</div>
+            </div>
+            <div class="news-content">
+              <span class="news-badge">${item.badge || '📰 خبر'}</span>
+              <h3 class="news-title">${item.title}</h3>
+              <p class="news-preview">${item.preview}</p>
+              <div class="news-meta">
+                <span class="news-date">📅 ${item.date || 'تاریخ نامشخص'}</span>
+                <span class="news-readmore">📖 ادامه مطلب</span>
+              </div>
+            </div>
+            <div class="news-full">
+              <p>${item.full.replace(/\n/g, '<br>')}</p>
+              <br><button class="close-btn" onclick="closeNews(this)">✖ بستن</button>
+            </div>
+          </div>
+        `;
+      }
+      container.innerHTML = html;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      loadNewsFromStorage();
+    });
+
+    function toggleNews(card) {
+      const full = card.querySelector('.news-full');
+      const isOpen = full.classList.contains('show');
+      document.querySelectorAll('.news-full').forEach(f => f.classList.remove('show'));
+      if (!isOpen) full.classList.add('show');
+    }
+
+    function closeNews(btn) {
+      btn.closest('.news-full').classList.remove('show');
+      if (event) event.stopPropagation();
+    }
+  </script>
+</body>
+</html>
 </body>
 </html>

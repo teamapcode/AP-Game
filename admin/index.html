@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>پنل مدیریت | AP Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="admin-container">
+    <h1>🎮 پنل مدیریت AP Game</h1>
+    
+    <div class="admin-tabs">
+      <button class="tab-btn active" data-tab="news">📰 مدیریت اخبار</button>
+      <button class="tab-btn" data-tab="games">🎮 مدیریت بازی‌ها</button>
+    </div>
+
+    <!-- ===== بخش مدیریت اخبار ===== -->
+    <div id="tab-news" class="tab-content active">
+      <h2>📰 مدیریت اخبار</h2>
+      
+      <div class="admin-form">
+        <h3>➕ افزودن خبر جدید</h3>
+        <div class="form-group">
+          <label>📌 عنوان خبر</label>
+          <input type="text" id="newsTitle" placeholder="عنوان خبر را وارد کنید...">
+        </div>
+        <div class="form-group">
+          <label>📝 خلاصه خبر</label>
+          <input type="text" id="newsPreview" placeholder="خلاصه خبر (یک خط)...">
+        </div>
+        <div class="form-group">
+          <label>📄 متن کامل خبر</label>
+          <textarea id="newsFull" rows="5" placeholder="متن کامل خبر را وارد کنید..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>🏷️ برچسب</label>
+          <select id="newsBadge">
+            <option value="🔥 داغ">🔥 داغ</option>
+            <option value="🆕 جدید">🆕 جدید</option>
+            <option value="📰 خبر">📰 خبر</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>🖼️ لینک عکس خبر</label>
+          <input type="text" id="newsImage" placeholder="https://example.com/image.jpg">
+        </div>
+        <button class="btn-save" onclick="saveNews()">💾 ذخیره خبر</button>
+      </div>
+
+      <div class="admin-list">
+        <h3>📋 لیست اخبار</h3>
+        <div id="newsList"></div>
+      </div>
+    </div>
+
+    <!-- ===== بخش مدیریت بازی‌ها ===== -->
+    <div id="tab-games" class="tab-content">
+      <h2>🎮 مدیریت بازی‌ها</h2>
+      
+      <div class="admin-form">
+        <h3>➕ افزودن بازی جدید</h3>
+        <div class="form-group">
+          <label>🎮 نام بازی</label>
+          <input type="text" id="gameTitle" placeholder="نام بازی را وارد کنید...">
+        </div>
+        <div class="form-group">
+          <label>🏷️ ژانر</label>
+          <select id="gameGenre">
+            <option value="action">🎬 اکشن • جهان‌باز</option>
+            <option value="adventure">🎨 ماجراجویی • خلاقیت</option>
+            <option value="rpg">⚔️ RPG • سولزلایک</option>
+            <option value="fps">🎯 FPS • تاکتیکی</option>
+            <option value="moba">🏰 MOBA • استراتژی</option>
+            <option value="social">🗣️ اجتماعی • پارانویا</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>📝 خلاصه بازی</label>
+          <input type="text" id="gamePreview" placeholder="خلاصه بازی (یک خط)...">
+        </div>
+        <div class="form-group">
+          <label>📄 معرفی کامل</label>
+          <textarea id="gameFull" rows="5" placeholder="متن کامل معرفی بازی را وارد کنید..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>🎯 مناسب برای</label>
+          <input type="text" id="gameSuitable" placeholder="مثال: عاشقان دنیای باز و اکشن">
+        </div>
+        <div class="form-group">
+          <label>🛒 لینک خرید</label>
+          <input type="text" id="gameLink" placeholder="https://store.steampowered.com/...">
+        </div>
+        <div class="form-group">
+          <label>🖼️ لینک عکس بازی</label>
+          <input type="text" id="gameImage" placeholder="https://example.com/game.jpg">
+        </div>
+        <button class="btn-save" onclick="saveGame()">💾 ذخیره بازی</button>
+      </div>
+
+      <div class="admin-list">
+        <h3>📋 لیست بازی‌ها</h3>
+        <div id="gamesList"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // ===== مدیریت تب‌ها =====
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const tab = this.dataset.tab;
+        document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+        document.getElementById('tab-' + tab).classList.add('active');
+        renderNewsList();
+        renderGamesList();
+      });
+    });
+
+    // ========================================== */
+    // ===== مدیریت اخبار ===== */
+    // ========================================== */
+    function saveNews() {
+      const title = document.getElementById('newsTitle').value.trim();
+      const preview = document.getElementById('newsPreview').value.trim();
+      const full = document.getElementById('newsFull').value.trim();
+      const badge = document.getElementById('newsBadge').value;
+      const image = document.getElementById('newsImage').value.trim();
+
+      if (!title || !preview || !full) {
+        alert('⚠️ لطفاً عنوان، خلاصه و متن کامل خبر را وارد کنید!');
+        return;
+      }
+
+      const news = JSON.parse(localStorage.getItem('newsList')) || [];
+      news.unshift({
+        id: Date.now(),
+        title: title,
+        preview: preview,
+        full: full,
+        badge: badge,
+        image: image || 'https://via.placeholder.com/600x300/1a1a2e/ffd700?text=خبر',
+        date: new Date().toLocaleDateString('fa-IR'),
+        timestamp: Date.now()
+      });
+      localStorage.setItem('newsList', JSON.stringify(news));
+      
+      document.getElementById('newsTitle').value = '';
+      document.getElementById('newsPreview').value = '';
+      document.getElementById('newsFull').value = '';
+      document.getElementById('newsImage').value = '';
+      renderNewsList();
+      alert('✅ خبر با موفقیت ذخیره شد!');
+    }
+
+    function renderNewsList() {
+      const container = document.getElementById('newsList');
+      const news = JSON.parse(localStorage.getItem('newsList')) || [];
+      
+      if (news.length === 0) {
+        container.innerHTML = '<p style="color:#888;">📭 هنوز خبری ثبت نشده است.</p>';
+        return;
+      }
+
+      let html = '';
+      for (let i = 0; i < news.length; i++) {
+        const item = news[i];
+        html += `
+          <div class="admin-item">
+            <div class="item-preview">
+              <img src="${item.image}" alt="${item.title}">
+              <div>
+                <h4>${item.title}</h4>
+                <p>${item.preview}</p>
+                <small>📅 ${item.date}</small>
+              </div>
+            </div>
+            <div class="item-actions">
+              <button onclick="editNews(${i})">✏️</button>
+              <button onclick="deleteNews(${i})">🗑️</button>
+            </div>
+          </div>
+        `;
+      }
+      container.innerHTML = html;
+    }
+
+    function deleteNews(index) {
+      if (!confirm('آیا مطمئنی می‌خواهی این خبر را حذف کنی؟')) return;
+      const news = JSON.parse(localStorage.getItem('newsList')) || [];
+      news.splice(index, 1);
+      localStorage.setItem('newsList', JSON.stringify(news));
+      renderNewsList();
+    }
+
+    function editNews(index) {
+      const news = JSON.parse(localStorage.getItem('newsList')) || [];
+      const item = news[index];
+      document.getElementById('newsTitle').value = item.title;
+      document.getElementById('newsPreview').value = item.preview;
+      document.getElementById('newsFull').value = item.full;
+      document.getElementById('newsBadge').value = item.badge;
+      document.getElementById('newsImage').value = item.image;
+      news.splice(index, 1);
+      localStorage.setItem('newsList', JSON.stringify(news));
+      renderNewsList();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ========================================== */
+    // ===== مدیریت بازی‌ها ===== */
+    // ========================================== */
+    function saveGame() {
+      const title = document.getElementById('gameTitle').value.trim();
+      const genre = document.getElementById('gameGenre').value;
+      const preview = document.getElementById('gamePreview').value.trim();
+      const full = document.getElementById('gameFull').value.trim();
+      const suitable = document.getElementById('gameSuitable').value.trim();
+      const link = document.getElementById('gameLink').value.trim();
+      const image = document.getElementById('gameImage').value.trim();
+
+      if (!title || !preview || !full) {
+        alert('⚠️ لطفاً نام، خلاصه و معرفی کامل بازی را وارد کنید!');
+        return;
+      }
+
+      const games = JSON.parse(localStorage.getItem('gamesList')) || [];
+      games.unshift({
+        id: Date.now(),
+        title: title,
+        genre: genre,
+        preview: preview,
+        full: full,
+        suitable: suitable || '🎯 مناسب برای: علاقه‌مندان به بازی',
+        link: link || '#',
+        image: image || 'https://via.placeholder.com/280x190/1a1a2e/ffd700?text=بازی',
+        timestamp: Date.now()
+      });
+      localStorage.setItem('gamesList', JSON.stringify(games));
+      
+      document.getElementById('gameTitle').value = '';
+      document.getElementById('gamePreview').value = '';
+      document.getElementById('gameFull').value = '';
+      document.getElementById('gameSuitable').value = '';
+      document.getElementById('gameLink').value = '';
+      document.getElementById('gameImage').value = '';
+      renderGamesList();
+      alert('✅ بازی با موفقیت ذخیره شد!');
+    }
+
+    function renderGamesList() {
+      const container = document.getElementById('gamesList');
+      const games = JSON.parse(localStorage.getItem('gamesList')) || [];
+      
+      if (games.length === 0) {
+        container.innerHTML = '<p style="color:#888;">📭 هنوز بازی‌ای ثبت نشده است.</p>';
+        return;
+      }
+
+      let html = '';
+      for (let i = 0; i < games.length; i++) {
+        const item = games[i];
+        const genreNames = {
+          'action': '🎬 اکشن',
+          'adventure': '🎨 ماجراجویی',
+          'rpg': '⚔️ RPG',
+          'fps': '🎯 FPS',
+          'moba': '🏰 MOBA',
+          'social': '🗣️ اجتماعی'
+        };
+        html += `
+          <div class="admin-item">
+            <div class="item-preview">
+              <img src="${item.image}" alt="${item.title}">
+              <div>
+                <h4>${item.title}</h4>
+                <p>${genreNames[item.genre] || item.genre}</p>
+                <small>${item.preview}</small>
+              </div>
+            </div>
+            <div class="item-actions">
+              <button onclick="editGame(${i})">✏️</button>
+              <button onclick="deleteGame(${i})">🗑️</button>
+            </div>
+          </div>
+        `;
+      }
+      container.innerHTML = html;
+    }
+
+    function deleteGame(index) {
+      if (!confirm('آیا مطمئنی می‌خواهی این بازی را حذف کنی؟')) return;
+      const games = JSON.parse(localStorage.getItem('gamesList')) || [];
+      games.splice(index, 1);
+      localStorage.setItem('gamesList', JSON.stringify(games));
+      renderGamesList();
+    }
+
+    function editGame(index) {
+      const games = JSON.parse(localStorage.getItem('gamesList')) || [];
+      const item = games[index];
+      document.getElementById('gameTitle').value = item.title;
+      document.getElementById('gameGenre').value = item.genre;
+      document.getElementById('gamePreview').value = item.preview;
+      document.getElementById('gameFull').value = item.full;
+      document.getElementById('gameSuitable').value = item.suitable;
+      document.getElementById('gameLink').value = item.link;
+      document.getElementById('gameImage').value = item.image;
+      games.splice(index, 1);
+      localStorage.setItem('gamesList', JSON.stringify(games));
+      renderGamesList();
+      document.querySelector('[data-tab="games"]').click();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ===== بارگذاری اولیه =====
+    renderNewsList();
+    renderGamesList();
+  </script>
+
+</body>
+</html>
