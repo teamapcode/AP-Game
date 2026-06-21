@@ -269,75 +269,74 @@
   </div>
 </footer>
 
-  <script src="script.js"></script>
-  <script src="script.js"></script>
-  
-  <script>
-    // ===== بارگذاری بازی‌ها از localStorage =====
-    function loadGamesFromStorage() {
-      const container = document.querySelector('.game-grid');
-      if (!container) return;
-
-      const gamesData = JSON.parse(localStorage.getItem('gamesList')) || [];
-      
-      if (gamesData.length === 0) {
-        container.innerHTML = '<p style="color:#888; text-align:center; padding:40px;">📭 هنوز بازی‌ای ثبت نشده است.</p>';
-        return;
-      }
-
-      let html = '';
-      for (let i = 0; i < gamesData.length; i++) {
-        const item = gamesData[i];
-        const genreClass = item.genre || 'action';
-        html += `
-          <div class="game-card genre-${genreClass}" onclick="toggleGame(this)">
-            <div class="game-image-wrapper">
-              <img src="${item.image}" alt="${item.title}" onerror="this.src='https://via.placeholder.com/280x190/1a1a2e/ffd700?text=بازی'">
-              <div class="game-image-title">${item.title}</div>
-            </div>
-            <div class="game-genre">${getGenreName(item.genre)}</div>
-            <div class="game-preview">${item.preview}</div>
-            <div class="game-full">
-              <strong>معرفی کامل:</strong> <span>${item.full}</span><br>
-              <span class="suitable">${item.suitable || '🎯 مناسب برای: علاقه‌مندان به بازی'}</span><br>
-              <a href="${item.link || '#'}" target="_blank" class="btn-download">🛒 خرید و نصب</a>
-              <br><button class="close-btn" onclick="closeGame(this)">✖ بستن</button>
-            </div>
-          </div>
-        `;
-      }
-      container.innerHTML = html;
+<script>
+  // ===== بارگذاری بازی‌ها از localStorage =====
+  function loadGamesFromStorage() {
+    var container = document.querySelector('.game-grid');
+    if (!container) {
+      console.log('⚠️ عنصر .game-grid پیدا نشد!');
+      return;
     }
 
-    function getGenreName(genre) {
-      const names = {
-        'action': '🎬 ژانر: اکشن • جهان‌باز',
-        'adventure': '🎨 ژانر: ماجراجویی • خلاقیت',
-        'rpg': '⚔️ ژانر: RPG • سولزلایک',
-        'fps': '🎯 ژانر: FPS • تاکتیکی',
-        'moba': '🏰 ژانر: MOBA • استراتژی',
-        'social': '🗣️ ژانر: اجتماعی • پارانویا'
-      };
-      return names[genre] || '🎮 ژانر: عمومی';
+    var gamesData = JSON.parse(localStorage.getItem('gamesList')) || [];
+    console.log('🎮 تعداد بازی‌ها:', gamesData.length);
+    
+    if (gamesData.length === 0) {
+      container.innerHTML = '<p style="color:#888; text-align:center; padding:40px;">📭 هنوز بازی‌ای ثبت نشده است.</p>';
+      return;
     }
 
-    document.addEventListener('DOMContentLoaded', function() {
-      loadGamesFromStorage();
-    });
-
-    function toggleGame(card) {
-      const full = card.querySelector('.game-full');
-      const isOpen = full.classList.contains('show');
-      document.querySelectorAll('.game-full').forEach(f => f.classList.remove('show'));
-      if (!isOpen) full.classList.add('show');
+    var html = '';
+    for (var i = 0; i < gamesData.length; i++) {
+      var item = gamesData[i];
+      var genreClass = item.genre || 'action';
+      html += '<div class="game-card genre-' + genreClass + '" onclick="toggleGame(this)">';
+      html += '<div class="game-image-wrapper">';
+      html += '<img src="' + item.image + '" alt="' + item.title + '" onerror="this.src=\'https://via.placeholder.com/280x190/1a1a2e/ffd700?text=بازی\'">';
+      html += '<div class="game-image-title">' + item.title + '</div>';
+      html += '</div>';
+      html += '<div class="game-genre">' + getGenreName(item.genre) + '</div>';
+      html += '<div class="game-preview">' + item.preview + '</div>';
+      html += '<div class="game-full">';
+      html += '<strong>معرفی کامل:</strong> <span>' + item.full + '</span><br>';
+      html += '<span class="suitable">' + (item.suitable || '🎯 مناسب برای: علاقه‌مندان به بازی') + '</span><br>';
+      html += '<a href="' + (item.link || '#') + '" target="_blank" class="btn-download">🛒 خرید و نصب</a>';
+      html += '<br><button class="close-btn" onclick="closeGame(this)">✖ بستن</button>';
+      html += '</div>';
+      html += '</div>';
     }
+    container.innerHTML = html;
+  }
 
-    function closeGame(btn) {
-      btn.closest('.game-full').classList.remove('show');
-      if (event) event.stopPropagation();
+  function getGenreName(genre) {
+    var names = {
+      'action': '🎬 ژانر: اکشن • جهان‌باز',
+      'adventure': '🎨 ژانر: ماجراجویی • خلاقیت',
+      'rpg': '⚔️ ژانر: RPG • سولزلایک',
+      'fps': '🎯 ژانر: FPS • تاکتیکی',
+      'moba': '🏰 ژانر: MOBA • استراتژی',
+      'social': '🗣️ ژانر: اجتماعی • پارانویا'
+    };
+    return names[genre] || '🎮 ژانر: عمومی';
+  }
+
+  function toggleGame(card) {
+    var full = card.querySelector('.game-full');
+    if (!full) return;
+    var isOpen = full.classList.contains('show');
+    var allFulls = document.querySelectorAll('.game-full');
+    for (var i = 0; i < allFulls.length; i++) {
+      allFulls[i].classList.remove('show');
     }
-  </script>
-</body>
-</html>
-</body>
-</html>
+    if (!isOpen) full.classList.add('show');
+  }
+
+  function closeGame(btn) {
+    var full = btn.closest('.game-full');
+    if (full) full.classList.remove('show');
+    if (window.event) window.event.stopPropagation();
+  }
+
+  // ===== اجرا =====
+  loadGamesFromStorage();
+</script>
