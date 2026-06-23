@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اخبار | AP Game</title>
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="container header-flex">
+      <div class="logo">
+        <img src="images/logo-apgame.jpg" alt="لوگو AP Game" onerror="this.src='https://via.placeholder.com/50x50/1a1a2e/ffd700?text=AP'">
+        <span class="logo-text">AP Game</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html" data-key="nav-home">🏠 خانه</a></li>
+          <li><a href="news.html" class="active" data-key="nav-news">📰 اخبار</a></li>
+          <li><a href="games.html" data-key="nav-games">🎮 بازی‌ها</a></li>
+          <li><a href="challenge.html" data-key="nav-challenge">🏆 چالش</a></li>
+          <li><a href="rewards.html" data-key="nav-rewards">🎁 جوایز</a></li>
+          <li><a href="about.html" data-key="nav-about">📖 درباره ما</a></li>
+          <li><a href="privacy.html" data-key="nav-privacy">🔒 حریم خصوصی</a></li>
+        </ul>
+      </nav>
+      <button class="lang-btn" onclick="toggleLanguage()">🌐 English</button>
+    </div>
+  </header>
+
+  <div id="userStatus" style="display:none;">
+    <div class="user-status-box">
+      <span id="userAvatarDisplay" class="user-avatar-big">😎</span>
+      <div>
+        <div id="userNameDisplay" class="user-name-display">علی رضایی</div>
+        <div id="userPhoneDisplay" class="user-phone-display">۰۹۱۲۳۴۵۶۷۸۹</div>
+      </div>
+      <button class="logout-btn" onclick="logoutUser()" data-key="logout">🚪</button>
+    </div>
+  </div>
+
+  <section class="section-news">
+    <div class="container">
+      <h2 class="section-title" data-key="news-title">📰 آخرین اخبار بازی</h2>
+      <div class="news-grid">
+
+        <!-- ===== خبر ۱ ===== -->
+        <div class="news-card" onclick="toggleNews(this)">
+          <div class="news-image-wrapper">
+            <img src="https://api2.zoomg.ir/media/resident-evil-4-main-character-684988458a108c5b9884d473?w=828&q=75" alt="ماد دو نفره RE4" onerror="this.src='https://via.placeholder.com/600x300/1a1a2e/ffd700?text=RE4+Co-op+Mod'">
+            <div class="news-image-title">🔥 ماد کوآپ RE4</div>
+          </div>
+          <div class="news-content">
+            <span class="news-badge" data-key="news-badge1">🔥 داغ</span>
+            <h3 class="news-title" data-key="news-title1">🧟‍♂️ ماد کوآپ برای Resident Evil 4 Remake</h3>
+            <p class="news-preview" data-key="news-preview1">دیگه لازم نیست تنهایی از دست غول‌ها فرار کنی! ماد جدید امکان تجربه داستان RE4 را به صورت دو نفره فراهم کرده...</p>
+            <div class="news-meta">
+              <span class="news-date">📅 ۱۹ خرداد ۱۴۰۵</span>
+              <span class="news-readmore" data-key="news-readmore">📖 ادامه مطلب</span>
+            </div>
+          </div>
+          <div class="news-full">
+            <p data-key="news-full1"><strong>🎮 ماد چگونه کار می‌کند؟</strong><br>
+            این ماد که با نام <strong>«Multiplayer Mod - Resident Evil 4»</strong> در وب‌سایت NexusMods در دسترس است، در حال حاضر در مرحله بتا قرار دارد. ایده اصلی آن همگام‌سازی کامل دو بازی به صورت لحظه‌ای است تا هر دو بازیکن بتوانند:</p>
+            <ul data-key="news-list1">
+              <li>✅ همزمان در کمپین پیشروی کنند</li>
+              <li>✅ دشمنان یکسان را ببینند</li>
+              <li>✅ رویدادهای داستانی را با هم تجربه کنند</li>
+              <li>✅ درها و سوئیچ‌ها را به صورت هماهنگ باز کنند</li>
+            </ul>
+            <p style="margin-top:10px;" data-key="news-full2"><strong>⚠️ اما همه چیز کامل نیست!</strong><br>
+            از آنجایی که این ماد هنوز در مراحل اولیه توسعه قرار دارد، ممکن است با مشکلاتی مانند <strong>افت فریم</strong> در مناطق خاص و <strong>همگام‌سازی ناقص دشمنان</strong> مواجه شوید.</p>
+            <div class="news-quote">
+              <p data-key="news-quote">💬 <strong>نظر شما چیست؟</strong><br>آیا تجربه Resident Evil 4 Remake به صورت دو نفره برای شما جذاب است؟</p>
+            </div>
+            <a href="https://www.nexusmods.com/residentevil42023/mods/" target="_blank" class="btn-download" data-key="news-download">🔗 دانلود ماد از NexusMods</a>
+            <br><button class="close-btn" onclick="closeNews(this)" data-key="close">✖ بستن</button>
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+<!-- ===== خبر: Shinobi: Art of Vengeance ===== -->
+<!-- ========================================== -->
+<div class="news-card" onclick="toggleNews(this)">
+    <div class="news-image-wrapper">
+      <img src="https://api2.zoomg.ir/media/shinobiartofvengeancecharacter-67d7b7d29134e36098de30e0?w=1920&q=75" alt="Shinobi Art of Vengeance" onerror="this.src='https://via.placeholder.com/600x300/1a1a2e/ffd700?text=Shinobi+Art+of+Vengeance'">
+      <div class="news-image-title">⚔️ Shinobi: Art of Vengeance</div>
+    </div>
+    <div class="news-content">
+      <span class="news-badge" style="background:#9b59b6; color:#fff;">🆕 جدید</span>
+      <h3 class="news-title">⚔️ تاریخ عرضه Shinobi: Art of Vengeance برای سوییچ ۲ اعلام شد</h3>
+      <p class="news-preview">سگا رسماً تأیید کرد که بازی Shinobi: Art of Vengeance ماه سپتامبر برای کنسول جدید نینتندو سوییچ ۲ عرضه می‌شود...</p>
+      <div class="news-meta">
+        <span class="news-date">📅 ۲۹ خرداد ۱۴۰۵</span>
+        <span class="news-readmore">📖 ادامه مطلب</span>
+      </div>
+    </div>
+    <div class="news-full">
+      <p><strong>🗓️ تاریخ عرضه و قیمت</strong><br>
+      شرکت سگا اعلام کرد بازی <strong>Shinobi: Art of Vengeance</strong> در تاریخ <strong>۲۴ سپتامبر (۲ مهر ۱۴۰۵)</strong> برای کنسول نینتندو سوییچ ۲ منتشر خواهد شد. این بازی در دو قالب فیزیکی و دیجیتال در دسترس علاقه‌مندان قرار می‌گیرد.</p>
+      
+      <p style="margin-top:10px;"><strong>💰 قیمت‌گذاری</strong><br>
+      • نسخه دیجیتال استاندارد: <strong>۲۹.۹۹ دلار</strong><br>
+      • نسخه دیجیتال دیلاکس: <strong>۳۹.۹۹ دلار</strong></p>
+      
+      <p style="margin-top:10px;"><strong>⚠️ نکته مهم</strong><br>
+      ظاهراً هیچ مسیر ارتقایی برای مالکان نسخه نینتندو سوییچ این بازی وجود ندارد. نه رایگان، نه حتی با تخفیف. اگر بازی را روی سوییچ قدیمی خود دارید و می‌خواهید آن را روی سخت‌افزار جدید تجربه کنید، باید برای بار دوم پول کامل آن را بپردازید.</p>
+      
+      <p style="margin-top:10px;"><strong>📦 محتویات نسخه دیلاکس</strong><br>
+      نسخه دیلاکس بازی شامل محتوای اضافه <strong>Villains Stage</strong> می‌شود، جایی که جو موساشی باید در برابر باس‌هایی از دیگر آثار مشهور سگا صف‌آرایی کند. همچنین:</p>
+      <ul>
+        <li>📖 کتاب هنری دیجیتال</li>
+        <li>🎵 موسیقی متن دیجیتال</li>
+        <li>🔮 یک طلسم ویژه</li>
+        <li>👘 لباس روح</li>
+        <li>🪙 ۲۰۰۰ سکه طلا</li>
+      </ul>
+      
+      <div class="news-quote" style="margin-top:10px;">
+        <p>💬 <strong>آیا شما هم منتظر Shinobi روی سوییچ ۲ هستید؟</strong><br>نظرات خود را با ما در میان بگذارید!</p>
+      </div>
+      
+      <br><button class="close-btn" onclick="closeNews(this)">✖ بستن</button>
+    </div>
+  </div>
+
+      </div>
+    </div>
+  </section>
+
+ <!-- ====== فوتر ====== -->
+<footer>
+  <div class="container footer-flex">
+    <div class="footer-left">
+      <a href="https://teamapcode.github.io/my-small-site/" target="_blank">
+        <img src="images/signature.jpg" alt="امضا" class="footer-signature" onerror="this.style.display='none'">
+      </a>
+    </div>
+    <div class="footer-right">
+      <p class="footer-phrase" data-key="footer-phrase">🎮 بازی تنها زندگی در رویا نیست، بلکه سفری‌ست به جایی فراتر از واقعیت.</p>
+      <p class="footer-established" data-key="footer-established">تأسیس: ۱۴۰۵/۲۰۲۶</p>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p data-key="footer-copy">© ۱۴۰۵ تمامی حقوق برای <strong>AP Game</strong> محفوظ است.</p>
+    <p data-key="footer-love">ساخته شده با ❤️ برای جامعه گیمینگ ایران</p>
+  </div>
+</footer>
+
+<script>
+  // ===== بارگذاری اخبار از گیت‌هاب =====
+  async function loadNewsFromGitHub() {
+    const container = document.querySelector('.news-grid');
+    if (!container) return;
+
+    try {
+      const response = await fetch('data/news.json');
+      if (!response.ok) {
+        container.innerHTML = '<p style="color:#888; text-align:center; padding:40px;">📭 خبری یافت نشد.</p>';
+        return;
+      }
+      const newsData = await response.json();
+      
+      if (newsData.length === 0) {
+        container.innerHTML = '<p style="color:#888; text-align:center; padding:40px;">📭 هنوز خبری ثبت نشده است.</p>';
+        return;
+      }
+
+      let html = '';
+      for (let i = 0; i < newsData.length; i++) {
+        const item = newsData[i];
+        html += `
+          <div class="news-card" onclick="toggleNews(this)">
+            <div class="news-image-wrapper">
+              <img src="${item.image}" alt="${item.title}" onerror="this.src='https://via.placeholder.com/600x300/1a1a2e/ffd700?text=خبر'">
+              <div class="news-image-title">${item.badge || '📰 خبر'}</div>
+            </div>
+            <div class="news-content">
+              <span class="news-badge">${item.badge || '📰 خبر'}</span>
+              <h3 class="news-title">${item.title}</h3>
+              <p class="news-preview">${item.preview}</p>
+              <div class="news-meta">
+                <span class="news-date">📅 ${item.date || 'تاریخ نامشخص'}</span>
+                <span class="news-readmore">📖 ادامه مطلب</span>
+              </div>
+            </div>
+            <div class="news-full">
+              <p>${(item.full || '').replace(/\n/g, '<br>')}</p>
+              <br><button class="close-btn" onclick="closeNews(this)">✖ بستن</button>
+            </div>
+          </div>
+        `;
+      }
+      container.innerHTML = html;
+    } catch (error) {
+      container.innerHTML = '<p style="color:#ff6b6b; text-align:center; padding:40px;">⚠️ خطا در بارگذاری اخبار</p>';
+    }
+  }
+
+  // ===== اجرا =====
+  loadNewsFromGitHub();
+
+  function toggleNews(card) {
+    const full = card.querySelector('.news-full');
+    if (!full) return;
+    const isOpen = full.classList.contains('show');
+    document.querySelectorAll('.news-full').forEach(f => f.classList.remove('show'));
+    if (!isOpen) full.classList.add('show');
+  }
+
+  function closeNews(btn) {
+    const full = btn.closest('.news-full');
+    if (full) full.classList.remove('show');
+    if (window.event) window.event.stopPropagation();
+  }
+</script>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بازی‌ها | AP Game</title>
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="container header-flex">
+      <div class="logo">
+        <img src="images/logo-apgame.jpg" alt="لوگو AP Game" onerror="this.src='https://via.placeholder.com/50x50/1a1a2e/ffd700?text=AP'">
+        <span class="logo-text">AP Game</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html" data-key="nav-home">🏠 خانه</a></li>
+          <li><a href="news.html" data-key="nav-news">📰 اخبار</a></li>
+          <li><a href="games.html" class="active" data-key="nav-games">🎮 بازی‌ها</a></li>
+          <li><a href="challenge.html" data-key="nav-challenge">🏆 چالش</a></li>
+          <li><a href="rewards.html" data-key="nav-rewards">🎁 جوایز</a></li>
+          <li><a href="about.html" data-key="nav-about">📖 درباره ما</a></li>
+          <li><a href="privacy.html" data-key="nav-privacy">🔒 حریم خصوصی</a></li>
+        </ul>
+      </nav>
+      <button class="lang-btn" onclick="toggleLanguage()">🌐 English</button>
+    </div>
+  </header>
+
+  <div id="userStatus" style="display:none;">
+    <div class="user-status-box">
+      <span id="userAvatarDisplay" class="user-avatar-big">😎</span>
+      <div>
+        <div id="userNameDisplay" class="user-name-display">علی رضایی</div>
+        <div id="userPhoneDisplay" class="user-phone-display">۰۹۱۲۳۴۵۶۷۸۹</div>
+      </div>
+      <button class="logout-btn" onclick="logoutUser()" data-key="logout">🚪</button>
+    </div>
+  </div>
+
+  <section class="section-games">
+    <div class="container">
+      <h2 class="section-title" data-key="games-title">🎮 لیست طلایی: ۱۰ بازی برتر</h2>
+      <div class="game-grid">
+
+        <!-- ========================================== -->
+        <!-- GTA 5 -->
+        <!-- ========================================== -->
+        <div class="game-card genre-action" onclick="toggleGame(this)">
+          <div class="game-image-wrapper">
+            <img src="https://upload.wikimedia.org/wikipedia/en/a/a5/Grand_Theft_Auto_V.png" alt="GTA 5" 
+                 onerror="this.onerror=null; this.src='https://images.igdb.com/igdb/image/upload/t_cover_big/co1t8d.jpg'">
+            <div class="game-image-title">🔥 GTA 5</div>
+          </div>
+          <div class="game-genre" data-key="genre-action">🎬 ژانر: اکشن • جهان‌باز</div>
+          <div class="game-preview" data-key="game-preview1">دنیای بی‌پایان لوس سانتوس...</div>
+          <div class="game-full">
+            <strong data-key="game-full1">معرفی کامل:</strong> <span data-key="game-desc1">در شهر بزرگ "لوس سانتوس"، شما تنها یک بازیکن نیستید، بلکه بخشی از یک اکوسیستم زنده هستید. می‌توانید از رانندگی با خودروهای لوکس لذت ببرید، در ماموریت‌های جنایی پیچیده شرکت کنید یا در بخش آنلاین، با دوستان خود به دنبال هیجان باشید. 💥</span><br>
+            <span class="suitable" data-key="game-suitable1">🎯 مناسب برای: عاشقان دنیای باز و اکشن</span>
+            <br>
+            <a href="https://store.steampowered.com/app/271590/Grand_Theft_Auto_V/" target="_blank" class="btn-download">🛒 خرید و نصب از استیم</a>
+            <br><button class="close-btn" onclick="closeGame(this)" data-key="close">✖ بستن</button>
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- Minecraft -->
+        <!-- ========================================== -->
+        <div class="game-card genre-adventure" onclick="toggleGame(this)">
+          <div class="game-image-wrapper">
+            <img src="https://upload.wikimedia.org/wikipedia/fa/b/b2/New-minecraft-art-cover.jpeg" alt="Minecraft" 
+                 onerror="this.onerror=null; this.src='https://images.igdb.com/igdb/image/upload/t_cover_big/co248t.jpg'">
+            <div class="game-image-title">🧱 Minecraft</div>
+          </div>
+          <div class="game-genre" data-key="genre-adventure">🎨 ژانر: ماجراجویی • خلاقیت</div>
+          <div class="game-preview" data-key="game-preview2">دنیای بی‌نهایت خلاقیت...</div>
+          <div class="game-full">
+            <strong data-key="game-full1">معرفی کامل:</strong> <span data-key="game-desc2">مینکرفت یک بازی نیست، یک دنیای بی‌انتهاست! در این بازی، محدودیت تنها با تخیل شما تعریف می‌شود. از ساخت یک کلبه چوبی کوچک شروع کنید تا برسید به ساختن کاخ‌های عظیم یا حتی بازسازی شهرهای واقعی. 🏰</span><br>
+            <span class="suitable" data-key="game-suitable2">🎯 مناسب برای: تمام سنین و علاقه‌مندان به خلاقیت</span>
+            <br>
+            <a href="https://www.minecraft.net/" target="_blank" class="btn-download">🛒 خرید و نصب از سایت رسمی</a>
+            <br><button class="close-btn" onclick="closeGame(this)" data-key="close">✖ بستن</button>
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- Elden Ring -->
+        <!-- ========================================== -->
+        <div class="game-card genre-rpg" onclick="toggleGame(this)">
+          <div class="game-image-wrapper">
+            <img src="https://upload.wikimedia.org/wikipedia/en/b/b9/Elden_Ring_Box_art.jpg" alt="Elden Ring" 
+                 onerror="this.onerror=null; this.src='https://images.igdb.com/igdb/image/upload/t_cover_big/co5ygy.jpg'">
+            <div class="game-image-title">🗡️ Elden Ring</div>
+          </div>
+          <div class="game-genre" data-key="genre-rpg">⚔️ ژانر: RPG • سولزلایک</div>
+          <div class="game-preview" data-key="game-preview3">سخت‌ترین و زیباترین چالش...</div>
+          <div class="game-full">
+            <strong data-key="game-full1">معرفی کامل:</strong> <span data-key="game-desc3">اگر به دنبال چالشی هستید که لرزه بر اندام‌تان بیندازد، Elden Ring همان جایی است که باید باشید. مبارزات بسیار دقیق و سخت است؛ اما وقتی یک باس‌فایت دشوار را شکست دهید، لذتی وصف‌ناپذیر خواهید داشت! 🔥</span><br>
+            <span class="suitable" data-key="game-suitable3">🎯 مناسب برای: گیمرهای حرفه‌ای و عاشقان چالش</span>
+            <br>
+            <a href="https://store.steampowered.com/app/1245620/ELDEN_RING/" target="_blank" class="btn-download">🛒 خرید و نصب از استیم</a>
+            <br><button class="close-btn" onclick="closeGame(this)" data-key="close">✖ بستن</button>
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- Zelda BOTW -->
+        <!-- ========================================== -->
+        <div class="game-card genre-adventure" onclick="toggleGame(this)">
+          <div class="game-image-wrapper">
+            <img src="https://upload.wikimedia.org/wikipedia/en/c/c6/The_Legend_of_Zelda_Breath_of_the_Wild.jpg" alt="Zelda BOTW" 
+                 onerror="this.onerror=null; this.src='https://images.igdb.com/igdb/image/upload/t_cover_big/co1r1z.jpg'">
+            <div class="game-image-title">🏹 Zelda: BOTW</div>
+          </div>
+          <div class="game-genre" data-key="genre-adventure">🌿 ژانر: ماجراجویی • جهان‌باز</div>
+          <div class="game-preview" data-key="game-preview4">آزادی مطلق در سرزمین هایرول...</div>
+          <div class="game-full">
+            <strong data-key="game-full1">معرفی کامل:</strong> <span data-key="game-desc4">زلدا با این نسخه، مفهوم "بازی جهان‌باز" را از نو تعریف کرد. در سرزمین هایرول، شما محدود به مسیرهای مشخص نیستید. می‌خواهید از کوه‌ها بالا بروید؟ می‌توانید! می‌خواهید با فیزیک بازی، راهی جدید برای حل معماها پیدا کنید؟ کاملاً ممکن است! 🧩</span><br>
+            <span class="suitable" data-key="game-suitable4">🎯 مناسب برای: عاشقان ماجراجویی و آرامش</span>
+            <br>
+            <a href="https://www.nintendo.com/store/products/the-legend-of-zelda-breath-of-the-wild-switch/" target="_blank" class="btn-download">🛒 خرید و نصب از نینتندو</a>
+            <br><button class="close-btn" onclick="closeGame(this)" data-key="close">✖ بستن</button>
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- RDR 2 -->
+        <!-- ========================================== -->
+        <div class="game-card genre-action" onclick="toggleGame(this)">
+          <div class="game-image-wrapper">
+            <img src="https://upload.wikimedia.org/wikipedia/en/4/44/Red_Dead_Redemption_II.jpg" alt="RDR 2" 
+                 onerror="this.onerror=null; this.src='https://images.igdb.com/igdb/image/upload/t_cover_big/co1t9r.jpg'">
+            <div class="game-image-title">🐎 RDR 2</div>
+          </div>
+          <div class="game-genre" data-key="genre-action">🤠 ژانر: اکشن • ماجراجویی</div>
+          <div class="game-preview" data-key="game-preview5">مرثیه‌ای باشکوه برای غرب وحشی...</div>
+          <div class="game-full">
+            <strong data-key="game-full1">معرفی کامل:</strong> <span data-key="game-desc5">با یکی از عمیق‌ترین و احساسی‌ترین داستان‌های تاریخ گیم روبرو هستید. جزئیات این بازی فراتر از حد تصور است؛ از نحوه واکنش حیوانات تا تغییرات آب و هوا. این بازی فقط یک بازی نیست، یک تجربه زندگی است. ❤️</span><br>
+            <span class="suitable" data-key="game-suitable5">🎯 مناسب برای: عاشقان داستان‌های حماسی</span>
+            <br>
+            <a href="https://store.steampowered.com/app/1174180/Red_Dead_Redemption_2/" target="_blank" class="btn-download">🛒 خرید و نصب از استیم</a>
+            <br><button class="close-btn" onclick="closeGame(this)" data-key="close">✖ بستن</button>
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- Witcher 3 -->
+        <!-- ========================================== -->
+        <div class="game-card genre-rpg" onclick="toggleGame(this)">
+          <div class="game-image-wrapper">
+            <img src="https://upload.wikimedia.org/wikipedia/en/0/0c/Witcher_3_cover_art.jpg" alt="Witcher 3" 
+                 onerror="this.onerror=null; this.src='https://images.igdb.com/igdb/image/upload/t_cover_big/co1tbd.jpg'">
+            <div class="game-image-title">🐺 Witcher 3</div>
+          </div>
+          <div class="game-genre" data-key="genre-rpg">🧙 ژانر: RPG • فانتزی</div>
+          <div class="game-preview" data-key="game-preview6">در دنیای هیولاها، انتخاب‌ها سنگین هستند...</div>
+          <div class="game-full">
+            <strong data-key="game-full1">معرفی کامل:</strong> <span data-key="game-desc6">در نقش "گرالت"، یک شکارچی هیولا، شما باید در دنیایی جادویی و پر از آشوب سفر کنید. چیزی که ویچر ۳ را متمایز می‌کند، قدرت داستان‌گویی آن است. حتی کوچک‌ترین ماموریت‌های جانبی دارای داستانی عمیق و شخصیت‌های جذاب هستند. 📜</span><br>
+            <span class="suitable" data-key="game-suitable6">🎯 مناسب برای: طرفداران فانتزی و داستان‌های پیچیده</span>
+            <br>
+            <a href="https://store.steampowered.com/app/292030/The_Witcher_3_Wild_Hunt/" target="_blank" class="btn-download">🛒 خرید و نصب از استیم</a>
+            <br><button class="close-btn" onclick="closeGame(this)" data-key="close">✖ بستن</button>
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- GoW Ragnarök -->
+        <!-- ========================================== -->
+        <div class="game-card genre-action" onclick="toggleGame(this)">
+          <div class="game-image-wrapper">
+            <img src="https://upload.wikimedia.org/wikipedia/fa/e/ee/God_of_War_Ragnar%C3%B6k_cover.jpg" alt="GoW Ragnarök" 
+                 onerror="this.onerror=null; this.src='https://images.igdb.com/igdb/image/upload/t_cover_big/co5x9h.jpg'">
+            <div class="game-image-title">🪓 GoW Ragnarök</div>
+          </div>
+          <div class="game-genre" data-key="genre-action">⚡ ژانر: اکشن • ماجراجویی</div>
+          <div class="game-preview" data-key="game-preview7">خشم خدایان و پیوند پدر و فرزندی...</div>
+          <div class="game-full">
+            <strong data-key="game-full1">معرفی کامل:</strong> <span data-key="game-desc7">ادامه سفر حماسی کرتوس در اساطیر اسکاندیناوی، تجربه‌ای است که تمام حواس شما را درگیر می‌کند. مبارزات سنگین، سریع و با گرافیکی خیره‌کننده انجام می‌شود. فراتر از اکشن، بازی به بررسی رابطه پیچیده کرتوس و پسرش می‌پردازد. ❤️‍🔥</span><br>
+            <span class="suitable" data-key="game-suitable7">🎯 مناسب برای: عاشقان اکشن و اساطیر</span>
+            <br>
+            <a href="https://store.steampowered.com/app/2322010/God_of_War_Ragnark/" target="_blank" class="btn-download">🛒 خرید و نصب از استیم</a>
+            <br><button class="close-btn" onclick="closeGame(this)" data-key="close">✖ بستن</button>
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- CS2 -->
+        <!-- ========================================== -->
+        <div class="game-card genre-fps" onclick="toggleGame(this)">
+          <div class="game-image-wrapper">
+            <img src="https://upload.wikimedia.org/wikipedia/en/f/f2/CS2_Cover_Art.jpg" alt="CS2" 
+                 onerror="this.onerror=null; this.src='https://images.igdb.com/igdb/image/upload/t_cover_big/co5s8d.jpg'">
+            <div class="game-image-title">🔫 CS2</div>
+          </div>
+          <div class="game-genre" data-key="genre-fps">🎯 ژانر: FPS • تاکتیکی</div>
+          <div class="game-preview" data-key="game-preview8">تیراندازی، استراتژی و سرعت عمل...</div>
+          <div class="game-full">
+            <strong data-key="game-full1">معرفی کامل:</strong> <span data-key="game-desc8">اگر فکر می‌کنید سرعت عمل و دقت در نشانه‌گیری برایتان اولویت دارد، کانتر استرایک مقصد شماست. CS2 مدرن‌ترین بازی شوتر تاکتیکی جهان است. هر میلی‌ثانیه و هر تیر ممکن است تعیین‌کننده پیروزی یا شکست تیم شما باشد. 🏆</span><br>
+            <span class="suitable" data-key="game-suitable8">🎯 مناسب برای: گیمرهای رقابتی و عاشقان FPS</span>
+            <br>
+            <a href="https://store.steampowered.com/app/730/CounterStrike_2/" target="_blank" class="btn-download">🛒 نصب از استیم (رایگان)</a>
+            <br><button class="close-btn" onclick="closeGame(this)" data-key="close">✖ بستن</button>
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- League of Legends -->
+        <!-- ========================================== -->
+        <div class="game-card genre-moba" onclick="toggleGame(this)">
+          <div class="game-image-wrapper">
+            <img src="https://images.g2a.com/470x276/1x1x0/league-of-legends-account-50-champions-korea-server-pc-league-of-legends-account-global-i10000340128278/55d993c9aba840fd910d32cb" alt="LoL" 
+                 onerror="this.onerror=null; this.src='https://images.igdb.com/igdb/image/upload/t_cover_big/co2m2l.jpg'">
+            <div class="game-image-title">🧙‍♀️ League of Legends</div>
+          </div>
+          <div class="game-genre" data-key="genre-moba">🏰 ژانر: MOBA • استراتژی</div>
+          <div class="game-preview" data-key="game-preview9">استراتژی، کار تیمی و نبرد برای فتح...</div>
+          <div class="game-full">
+            <strong data-key="game-full1">معرفی کامل:</strong> <span data-key="game-desc9">در دنیای "رونرا"، شما و تیمتان باید با استفاده از قدرت‌های جادویی و مهارت‌های رزمی، بیس دشمن را نابود کنید. LoL نیاز به تمرکز بالا، هماهنگی تیمی و دانش استراتژیک دارد. با تنوع بسیار زیاد قهرمانان، هر بازی تجربه‌ای متفاوت است. 🔄</span><br>
+            <span class="suitable" data-key="game-suitable9">🎯 مناسب برای: عاشقان استراتژی و رقابت تیمی</span>
+            <br>
+            <a href="https://www.leagueoflegends.com/" target="_blank" class="btn-download">🛒 نصب از سایت رسمی (رایگان)</a>
+            <br><button class="close-btn" onclick="closeGame(this)" data-key="close">✖ بستن</button>
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- Among Us -->
+        <!-- ========================================== -->
+        <div class="game-card genre-social" onclick="toggleGame(this)">
+          <div class="game-image-wrapper">
+            <img src="https://upload.wikimedia.org/wikipedia/en/9/9a/Among_Us_cover_art.jpg" alt="Among Us" 
+                 onerror="this.onerror=null; this.src='https://images.igdb.com/igdb/image/upload/t_cover_big/co1y3h.jpg'">
+            <div class="game-image-title">🚀 Among Us</div>
+          </div>
+          <div class="game-genre" data-key="genre-social">🗣️ ژانر: اجتماعی • پارانویا</div>
+          <div class="game-preview" data-key="game-preview10">به هیچ‌کس اعتماد نکنید!</div>
+          <div class="game-full">
+            <strong data-key="game-full1">معرفی کامل:</strong> <span data-key="game-desc10">شاید گرافیک این بازی ساده به نظر برسد، اما قدرت آن در ایجاد پارانویا و شک و تردید است! در یک سفینه فضایی، شما باید ماموریت‌ها را انجام دهید، اما مراقب باشید: یک یا چند نفر "خیانت‌کار" هستند که قصد دارند همه را از بین ببرند! 😈</span><br>
+            <span class="suitable" data-key="game-suitable10">🎯 مناسب برای: دورهمی‌های دوستانه و بازی‌های اجتماعی</span>
+            <br>
+            <a href="https://store.steampowered.com/app/945360/Among_Us/" target="_blank" class="btn-download">🛒 خرید و نصب از استیم</a>
+            <br><button class="close-btn" onclick="closeGame(this)" data-key="close">✖ بستن</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== فوتر ====== -->
+<footer>
+  <div class="container footer-flex">
+    <div class="footer-left">
+      <a href="https://teamapcode.github.io/my-small-site/" target="_blank">
+        <img src="images/signature.jpg" alt="امضا" class="footer-signature" onerror="this.style.display='none'">
+      </a>
+    </div>
+    <div class="footer-right">
+      <p class="footer-phrase" data-key="footer-phrase">🎮 بازی تنها زندگی در رویا نیست، بلکه سفری‌ست به جایی فراتر از واقعیت.</p>
+      <p class="footer-established" data-key="footer-established">تأسیس: ۱۴۰۵/۲۰۲۶</p>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p data-key="footer-copy">© ۱۴۰۵ تمامی حقوق برای <strong>AP Game</strong> محفوظ است.</p>
+    <p data-key="footer-love">ساخته شده با ❤️ برای جامعه گیمینگ ایران</p>
+  </div>
+</footer>
+
+<script>
+  // ===== بارگذاری بازی‌ها از گیت‌هاب =====
+  async function loadGamesFromGitHub() {
+    const container = document.querySelector('.game-grid');
+    if (!container) return;
+
+    try {
+      const response = await fetch('data/games.json');
+      if (!response.ok) {
+        container.innerHTML = '<p style="color:#888; text-align:center; padding:40px;">📭 بازی‌ای یافت نشد.</p>';
+        return;
+      }
+      const gamesData = await response.json();
+      
+      if (gamesData.length === 0) {
+        container.innerHTML = '<p style="color:#888; text-align:center; padding:40px;">📭 هنوز بازی‌ای ثبت نشده است.</p>';
+        return;
+      }
+
+      let html = '';
+      for (let i = 0; i < gamesData.length; i++) {
+        const item = gamesData[i];
+        const genreClass = item.genre || 'action';
+        html += `
+          <div class="game-card genre-${genreClass}" onclick="toggleGame(this)">
+            <div class="game-image-wrapper">
+              <img src="${item.image}" alt="${item.title}" onerror="this.src='https://via.placeholder.com/280x190/1a1a2e/ffd700?text=بازی'">
+              <div class="game-image-title">${item.title}</div>
+            </div>
+            <div class="game-genre">${getGenreName(item.genre)}</div>
+            <div class="game-preview">${item.preview}</div>
+            <div class="game-full">
+              <strong>معرفی کامل:</strong> <span>${item.full}</span><br>
+              <span class="suitable">${item.suitable || '🎯 مناسب برای: علاقه‌مندان به بازی'}</span><br>
+              <a href="${item.link || '#'}" target="_blank" class="btn-download">🛒 خرید و نصب</a>
+              <br><button class="close-btn" onclick="closeGame(this)">✖ بستن</button>
+            </div>
+          </div>
+        `;
+      }
+      container.innerHTML = html;
+    } catch (error) {
+      container.innerHTML = '<p style="color:#ff6b6b; text-align:center; padding:40px;">⚠️ خطا در بارگذاری بازی‌ها</p>';
+    }
+  }
+
+  function getGenreName(genre) {
+    const names = {
+      'action': '🎬 ژانر: اکشن • جهان‌باز',
+      'adventure': '🎨 ژانر: ماجراجویی • خلاقیت',
+      'rpg': '⚔️ ژانر: RPG • سولزلایک',
+      'fps': '🎯 ژانر: FPS • تاکتیکی',
+      'moba': '🏰 ژانر: MOBA • استراتژی',
+      'social': '🗣️ ژانر: اجتماعی • پارانویا'
+    };
+    return names[genre] || '🎮 ژانر: عمومی';
+  }
+
+  // ===== اجرا =====
+  loadGamesFromGitHub();
+
+  function toggleGame(card) {
+    const full = card.querySelector('.game-full');
+    if (!full) return;
+    const isOpen = full.classList.contains('show');
+    document.querySelectorAll('.game-full').forEach(f => f.classList.remove('show'));
+    if (!isOpen) full.classList.add('show');
+    if (window.event) window.event.stopPropagation();
+  }
+
+  function closeGame(btn) {
+    const full = btn.closest('.game-full');
+    if (full) full.classList.remove('show');
+    if (window.event) window.event.stopPropagation();
+  }
+</script>

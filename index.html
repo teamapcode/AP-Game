@@ -2,6 +2,7 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
+<<<<<<< HEAD
   <link rel="icon" type="image/jpg" href="logo.jpg">
 <link rel="shortcut icon" href="logo.jpg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -752,5 +753,191 @@ if (!document.querySelector('.page.active')) {
 }
 </script>
 
+=======
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AP Game | خانه</title>
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="container header-flex">
+      <div class="logo">
+        <img src="images/logo-apgame.jpg" alt="لوگو AP Game" onerror="this.src='https://via.placeholder.com/50x50/1a1a2e/ffd700?text=AP'">
+        <span class="logo-text">AP Game</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active" data-key="nav-home">🏠 خانه</a></li>
+          <li><a href="news.html" data-key="nav-news">📰 اخبار</a></li>
+          <li><a href="games.html" data-key="nav-games">🎮 بازی‌ها</a></li>
+          <li><a href="challenge.html" data-key="nav-challenge">🏆 چالش</a></li>
+          <li><a href="rewards.html" data-key="nav-rewards">🎁 جوایز</a></li>
+          <li><a href="about.html" data-key="nav-about">📖 درباره ما</a></li>
+          <li><a href="privacy.html" data-key="nav-privacy">🔒 حریم خصوصی</a></li>
+        </ul>
+      </nav>
+      <button class="lang-btn" onclick="toggleLanguage()">🌐 English</button>
+    </div>
+  </header>
+
+  <div id="userStatus" style="display:none;">
+    <div class="user-status-box">
+      <span id="userAvatarDisplay" class="user-avatar-big">😎</span>
+      <div>
+        <div id="userNameDisplay" class="user-name-display">علی رضایی</div>
+        <div id="userPhoneDisplay" class="user-phone-display">۰۹۱۲۳۴۵۶۷۸۹</div>
+      </div>
+      <button class="logout-btn" onclick="logoutUser()" data-key="logout">🚪</button>
+    </div>
+  </div>
+
+  <!-- ====== بنر اسلایدر ====== -->
+<section class="banner-slider">
+  <div class="slider-container">
+    
+    <!-- اسلاید ۱ -->
+    <div class="slide active" data-emoji-left="🎮" data-emoji-right="👾">
+      <img src="images/banner1.jpg" alt="بنر ۱" onerror="this.src='https://via.placeholder.com/1920x600/1a1a2e/ffd700?text=AP+Game'">
+      <div class="slide-content">
+        <h1 data-key="banner-title1">🎮 به دنیای گیم خوش آمدید!</h1>
+        <p data-key="banner-desc1">آخرین اخبار، معرفی بازی‌های برتر و چالش‌های هفتگی را در AP Game دنبال کنید.</p>
+        <a href="news.html" class="btn-gold" data-key="banner-btn1">مشاهده اخبار</a>
+      </div>
+    </div>
+
+    <!-- اسلاید ۲ -->
+    <div class="slide" data-emoji-left="📰" data-emoji-right="🎯">
+      <img src="images/banner2.jpg" alt="بنر ۲" onerror="this.src='https://via.placeholder.com/1920x600/2a1a3e/ffd700?text=جدیدترین+اخبار'">
+      <div class="slide-content">
+        <h1 data-key="banner-title2">📰 جدیدترین اخبار بازی</h1>
+        <p data-key="banner-desc2">همیشه از آخرین رویدادهای دنیای گیم مطلع باش!</p>
+        <a href="news.html" class="btn-gold" data-key="banner-btn2">خواندن اخبار</a>
+      </div>
+    </div>
+
+    <!-- اسلاید ۳ -->
+    <div class="slide" data-emoji-left="🏆" data-emoji-right="⭐">
+      <img src="images/banner3.jpg" alt="بنر ۳" onerror="this.src='https://via.placeholder.com/1920x600/1a2a3e/ffd700?text=چالش+هفتگی'">
+      <div class="slide-content">
+        <h1 data-key="banner-title3">🏆 چالش هفتگی</h1>
+        <p data-key="banner-desc3">هر هفته یک چالش جدید برای گیمرهای حرفه‌ای!</p>
+        <a href="challenge.html" class="btn-gold" data-key="banner-btn3">مشاهده چالش‌ها</a>
+      </div>
+    </div>
+
+    <button class="slider-btn prev" onclick="changeSlide(-1)">❮</button>
+    <button class="slider-btn next" onclick="changeSlide(1)">❯</button>
+
+    <div class="slider-dots">
+      <span class="dot active" onclick="goToSlide(0)"></span>
+      <span class="dot" onclick="goToSlide(1)"></span>
+      <span class="dot" onclick="goToSlide(2)"></span>
+    </div>
+
+  </div>
+</section>
+  <!-- ====== اسلایدر متنی ====== -->
+  <section class="text-slider-section">
+    <div class="container">
+      <div class="text-slider-container">
+        <div class="text-slide active" data-key="text-slide1">
+          <h2>🔥 AP Game</h2>
+          <p>مرجع تخصصی اخبار و معرفی بازی</p>
+        </div>
+        <div class="text-slide" data-key="text-slide2">
+          <h2>🎮 معرفی بازی‌های روز دنیا</h2>
+          <p>به‌روزترین نقد و بررسی‌ها</p>
+        </div>
+        <div class="text-slide" data-key="text-slide3">
+          <h2>📰 اخبار دنیای بازی</h2>
+          <p>اولین منبع خبری گیمینگ ایران</p>
+        </div>
+        <div class="text-slide" data-key="text-slide4">
+          <h2>🏆 چالش‌های هفتگی</h2>
+          <p>با ما همراه باش و برنده شو!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- ====== بخش نظرات ====== -->
+  <!-- ========================================== -->
+  <section id="comments" class="section-comments">
+    <div class="container">
+      <h2 class="section-title" data-key="comments-title">💬 نظرات شما</h2>
+
+      <div id="commentsContainer"></div>
+
+      <div id="emptyMessage" class="empty-message" data-key="empty-comments">
+        🗨️ هنوز نظری ثبت نشده است. اولین نفری باشید که نظر می‌دهید!
+      </div>
+
+      <div class="comment-form">
+        <h3 data-key="comment-form-title">✍️ ثبت نظر جدید</h3>
+        <textarea id="commentText" placeholder="نظر شما..." rows="4" data-key="comment-placeholder"></textarea>
+        <button class="btn-submit-comment" onclick="addComment()" data-key="submit-comment">📨 ارسال نظر</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== فوتر ====== -->
+  <footer>
+    <div class="container footer-flex">
+      <div class="footer-left">
+        <a href="https://teamapcode.github.io/my-small-site/" target="_blank">
+          <img src="images/signature.jpg" alt="امضا" class="footer-signature" onerror="this.style.display='none'">
+        </a>
+      </div>
+      <div class="footer-right">
+        <p class="footer-phrase" data-key="footer-phrase">🎮 بازی تنها زندگی در رویا نیست، بلکه سفری‌ست به جایی فراتر از واقعیت.</p>
+        <p class="footer-established" data-key="footer-established">تأسیس: ۱۴۰۵/۲۰۲۶</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p data-key="footer-copy">© ۱۴۰۵ تمامی حقوق برای <strong>AP Game</strong> محفوظ است.</p>
+      <p data-key="footer-love">ساخته شده با ❤️ برای جامعه گیمینگ ایران</p>
+    </div>
+  </footer>
+
+  <!-- ====== مودال ثبت‌نام ====== -->
+  <div id="userModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 data-key="modal-title">👋 خوش آمدید!</h2>
+        <p data-key="modal-desc">برای ثبت نظر، لطفاً اطلاعات خود را وارد کنید</p>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label data-key="modal-name">👤 نام و نام خانوادگی</label>
+          <input type="text" id="userName" placeholder="مثال: علی رضایی" maxlength="30" data-key="modal-name-placeholder">
+        </div>
+        <div class="form-group">
+          <label data-key="modal-phone">📱 شماره موبایل</label>
+          <input type="tel" id="userPhone" placeholder="مثال: ۰۹۱۲۳۴۵۶۷۸۹" maxlength="11" data-key="modal-phone-placeholder">
+        </div>
+        <div class="form-group">
+          <label data-key="modal-avatar">🖼️ انتخاب آواتار</label>
+          <div class="avatar-select">
+            <div class="avatar-option active" data-avatar="1">😎</div>
+            <div class="avatar-option" data-avatar="2">🧑‍💻</div>
+            <div class="avatar-option" data-avatar="3">👾</div>
+            <div class="avatar-option" data-avatar="4">🎮</div>
+            <div class="avatar-option" data-avatar="5">🦊</div>
+            <div class="avatar-option" data-avatar="6">🐉</div>
+            <div class="avatar-option" data-avatar="7">🌟</div>
+            <div class="avatar-option" data-avatar="8">🔥</div>
+          </div>
+          <input type="hidden" id="selectedAvatar" value="1">
+        </div>
+        <button class="btn-submit-user" onclick="saveUser()" data-key="modal-submit">✅ ورود / ثبت‌نام</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+>>>>>>> c1680d29a92320e7ab6426e38264ecb61231ded4
 </body>
 </html>
