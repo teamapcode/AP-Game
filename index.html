@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/jpg" href="logo.jpg">
+<link rel="shortcut icon" href="logo.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Box | دایره‌المعارف بازی‌ها</title>
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="shortcut icon" href="images/logo.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f7fc;
+      color: #1e2a3a;
+      line-height: 1.7;
+      padding: 0 20px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      border-radius: 28px;
+      overflow: hidden;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      width: 100%;
+    }
+    
+    /* ===== صفحه ورود ===== */
+    #loginOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(11, 26, 46, 0.92);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease;
+    }
+    #loginOverlay.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .login-card {
+      background: white;
+      border-radius: 48px;
+      padding: 50px 45px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+      text-align: center;
+      animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    @keyframes popIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .login-card .logo-big {
+      font-size: 4rem;
+      color: #ffb347;
+      background: #0b1a2e;
+      padding: 20px;
+      border-radius: 30px;
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+    .login-card h2 { font-size: 2rem; color: #0b1a2e; margin-bottom: 6px; }
+    .login-card p { color: #5a6f84; margin-bottom: 25px; }
+    .login-card .field-group { margin-bottom: 20px; text-align: right; }
+    .login-card label { font-weight: 600; color: #1b3b5c; display: block; margin-bottom: 6px; }
+    .login-card input[type="text"] {
+      width: 100%;
+      padding: 14px 20px;
+      border: 2px solid #e2ecf7;
+      border-radius: 60px;
+      font-size: 1rem;
+      transition: 0.2s;
+      background: #f7faff;
+    }
+    .login-card input[type="text"]:focus { border-color: #ffb347; outline: none; background: white; }
+    .avatar-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin: 10px 0 20px;
+    }
+    .avatar-option {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      font-size: 2.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f0f6fe;
+      border: 3px solid transparent;
+      cursor: pointer;
+      transition: 0.2s;
+      color: #1b3b5c;
+    }
+    .avatar-option:hover { transform: scale(1.08); background: #e2ecf7; }
+    .avatar-option.selected { border-color: #ffb347; background: #fff0e0; box-shadow: 0 0 0 4px rgba(255,179,71,0.2); }
+    .login-btn {
+      background: #ffb347;
+      border: none;
+      color: #0b1a2e;
+      padding: 16px 40px;
+      border-radius: 60px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      width: 100%;
+      cursor: pointer;
+      transition: 0.2s;
+      border: 2px solid #0b1a2e;
+    }
+    .login-btn:hover { background: #0b1a2e; color: #ffb347; border-color: #ffb347; }
+    .login-error { color: #e74c3c; font-size: 0.9rem; margin-top: 8px; display: none; }
+
+    /* ===== هدر ===== */
+    header {
+      background: linear-gradient(135deg, #0b1a2e, #1b3b5c);
+      padding: 20px 40px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 3px solid #ffb347;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo i {
+      font-size: 2.5rem;
+      color: #ffb347;
+      background: rgba(255, 179, 71, 0.15);
+      padding: 10px;
+      border-radius: 18px;
+      box-shadow: 0 0 0 2px rgba(255, 179, 71, 0.3);
+    }
+    .logo h1 { color: white; font-weight: 700; font-size: 2rem; letter-spacing: 1px; }
+    .logo h1 span { color: #ffb347; }
+
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(255,255,255,0.08);
+      padding: 6px 18px 6px 24px;
+      border-radius: 60px;
+      border: 1px solid rgba(255, 179, 71, 0.2);
+    }
+    .user-info .user-avatar { font-size: 2rem; line-height: 1; }
+    .user-info .user-name { color: white; font-weight: 600; font-size: 1.05rem; display: flex; align-items: center; gap: 6px; }
+    .user-info .user-name .verified-badge { color: #4fc3f7; font-size: 1.1rem; background: rgba(79,195,247,0.15); border-radius: 50%; padding: 2px; }
+    .user-info .logout-btn {
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: #e0eefb;
+      padding: 6px 14px;
+      border-radius: 40px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: 0.2s;
+    }
+    .user-info .logout-btn:hover { background: #ffb347; color: #0b1a2e; }
+
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      gap: 10px 20px;
+    }
+    nav ul li a {
+      color: #e0eefb;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 40px;
+      transition: all 0.2s;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    nav ul li a i { font-size: 1rem; }
+    nav ul li a:hover, nav ul li a.active { background: #ffb347; color: #0b1a2e; box-shadow: 0 4px 10px rgba(255,179,71,0.3); }
+
+    .page { display: none; padding: 40px 50px; animation: fade 0.3s ease; }
+    .page.active { display: block; }
+    @keyframes fade { 0% { opacity: 0.3; transform: translateY(8px); } 100% { opacity: 1; transform: translateY(0); } }
+
+    /* ===== بنر ثابت (بدون کات) ===== */
+    .banner {
+      width: 100%;
+      margin-bottom: 30px;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      background: #0b1a2e;
+    }
+    .banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .page-title { font-size: 2.2rem; font-weight: 700; color: #0b1a2e; margin-bottom: 18px; display: flex; align-items: center; gap: 12px; }
+    .page-title i { color: #ffb347; }
+    .page-sub { font-size: 1.1rem; color: #2c4058; margin-bottom: 25px; }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 25px;
+      margin: 30px 0 20px;
+    }
+    .feature-item {
+      background: #f8faff;
+      padding: 22px 12px;
+      border-radius: 24px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.03);
+      border: 1px solid #e9f0f8;
+      text-align: center;
+      transition: 0.2s;
+    }
+    .feature-item i { font-size: 2.4rem; color: #ffb347; margin-bottom: 12px; }
+    .feature-item h4 { font-size: 1.1rem; margin-bottom: 6px; }
+    .badge-android {
+      background: #1b3b5c;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 60px;
+      display: inline-block;
+      font-weight: 600;
+      font-size: 1.2rem;
+      margin: 15px 0 10px;
+      border: 2px solid #ffb347;
+    }
+    .filter-sample {
+      background: #eef4fa;
+      padding: 20px 25px;
+      border-radius: 60px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px 35px;
+      margin: 20px 0 10px;
+    }
+    .filter-sample span { font-weight: 500; color: #1b3b5c; }
+    .filter-sample i { color: #ffb347; margin-left: 6px; }
+
+    .reviews-section {
+      margin-top: 50px;
+      background: #f7faff;
+      border-radius: 40px;
+      padding: 30px 35px;
+      border: 1px solid #e2ecf7;
+    }
+    .reviews-section h3 { font-size: 1.8rem; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+    .reviews-section h3 i { color: #ffb347; }
+    .review-list { display: flex; flex-direction: column; gap: 16px; margin-bottom: 25px; }
+    .review-item {
+      background: white;
+      padding: 18px 24px;
+      border-radius: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      border: 1px solid #e9f0f8;
+    }
+    .review-item .review-header { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
+    .review-item .review-header strong { font-size: 1.1rem; color: #0b1a2e; }
+    .review-item .review-header .stars { color: #ffb347; letter-spacing: 2px; }
+    .review-item .review-text { margin-top: 8px; color: #2f4760; }
+    .review-form { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
+    .review-form .row { display: flex; flex-wrap: wrap; gap: 14px; }
+    .review-form input, .review-form textarea, .review-form select {
+      padding: 12px 18px;
+      border: 1px solid #dce7f2;
+      border-radius: 50px;
+      font-size: 1rem;
+      background: white;
+      flex: 1 1 200px;
+    }
+    .review-form textarea { border-radius: 28px; resize: vertical; min-height: 70px; width: 100%; }
+    .review-form button {
+      background: #0b1a2e;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.2s;
+      border: 1px solid #ffb347;
+      align-self: flex-start;
+    }
+    .review-form button:hover { background: #ffb347; color: #0b1a2e; }
+
+    .about-section { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
+    .about-text { flex: 2; min-width: 260px; }
+    .about-text h3 { font-size: 2rem; color: #0b1a2e; margin-bottom: 20px; display: flex; align-items: center; gap: 16px; }
+    .about-text h3 i { font-size: 3rem; color: #ffb347; background: rgba(255,179,71,0.12); padding: 12px; border-radius: 24px; }
+    .about-text p { margin-bottom: 16px; color: #2b4058; }
+    .about-text .verified-badge { color: #4fc3f7; font-size: 1.2rem; background: rgba(79,195,247,0.12); padding: 2px 8px; border-radius: 20px; display: inline-block; }
+    
+    .about-logo-badge {
+      flex: 1;
+      min-width: 180px;
+      background: #f0f6fe;
+      border-radius: 40px;
+      padding: 30px 20px;
+      text-align: center;
+      border: 2px dashed #ffb347;
+    }
+    .about-logo-badge img {
+      width: 130px;
+      height: 130px;
+      border-radius: 30px;
+      object-fit: cover;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      border: 3px solid #ffb347;
+    }
+    .about-logo-badge p { margin-top: 14px; color: #2f4760; }
+
+    .contact-info { display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; }
+    .contact-details { flex: 1; min-width: 240px; }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 18px;
+      background: #f7faff;
+      padding: 14px 20px;
+      border-radius: 50px;
+      border: 1px solid #e2ecf7;
+    }
+    .contact-item i { width: 36px; height: 36px; background: #ffb347; color: #0b1a2e; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .contact-form { flex: 1.5; min-width: 260px; background: #f7faff; padding: 30px; border-radius: 40px; }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 14px 18px;
+      margin-bottom: 18px;
+      border: 1px solid #dce7f2;
+      border-radius: 50px;
+      font-size: 1rem;
+      background: white;
+    }
+    .contact-form textarea { border-radius: 28px; min-height: 100px; }
+    .contact-form button {
+      background: #0b1a2e;
+      color: white;
+      border: none;
+      padding: 14px 30px;
+      border-radius: 60px;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid #ffb347;
+    }
+    .contact-form button:hover { background: #ffb347; color: #0b1a2e; }
+
+    .privacy-content h3 { font-size: 2rem; margin-bottom: 25px; }
+    .privacy-content h4 { margin: 25px 0 10px; font-size: 1.3rem; color: #1b3b5c; }
+    .privacy-content p { color: #2f4760; margin-bottom: 14px; }
+    .privacy-list { list-style: none; padding-right: 10px; }
+    .privacy-list li { padding: 8px 0; border-bottom: 1px solid #edf4fa; display: flex; align-items: center; gap: 12px; }
+    .privacy-list li i { color: #ffb347; width: 24px; }
+
+    footer {
+      background: #0b1a2e;
+      color: #b5ccdf;
+      padding: 20px 40px;
+      text-align: center;
+      border-top: 2px solid #ffb347;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+    footer i { color: #ffb347; }
+    .footer-links a { color: #b5ccdf; margin: 0 12px; text-decoration: none; }
+    .footer-links a:hover { color: #ffb347; }
+
+    @media (max-width: 780px) {
+      header { flex-direction: column; gap: 15px; padding: 20px; }
+      nav ul { justify-content: center; }
+      .user-info { width: 100%; justify-content: center; }
+      .page { padding: 25px 20px; }
+      .login-card { padding: 30px 25px; margin: 0 15px; }
+      .about-logo-badge img { width: 100px; height: 100px; }
+    }
+    @media (max-width: 480px) {
+      .logo h1 { font-size: 1.5rem; }
+      .logo i { font-size: 2rem; }
+      .page-title { font-size: 1.8rem; }
+      .user-info .user-name { font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== صفحه ورود ===== -->
+<div id="loginOverlay">
+  <div class="login-card">
+    <div class="logo-big"><i class="fas fa-dice-d6"></i></div>
+    <h2>به Game Box خوش آمدید</h2>
+    <p>برای ورود، نام و آواتار خود را انتخاب کنید</p>
+    <div class="field-group">
+      <label>نام شما</label>
+      <input type="text" id="loginName" placeholder="مثلاً اشکان پیمان" value="اشکان پیمان">
+    </div>
+    <div class="field-group">
+      <label>آواتار خود را انتخاب کنید</label>
+      <div class="avatar-grid" id="avatarGrid">
+        <div class="avatar-option selected" data-avatar="😎">😎</div>
+        <div class="avatar-option" data-avatar="🕹️">🕹️</div>
+        <div class="avatar-option" data-avatar="🎮">🎮</div>
+        <div class="avatar-option" data-avatar="👾">👾</div>
+        <div class="avatar-option" data-avatar="🤖">🤖</div>
+        <div class="avatar-option" data-avatar="🧙">🧙</div>
+        <div class="avatar-option" data-avatar="🏎️">🏎️</div>
+        <div class="avatar-option" data-avatar="🚀">🚀</div>
+      </div>
+    </div>
+    <button class="login-btn" id="loginBtn"><i class="fas fa-sign-in-alt"></i> ورود به Game Box</button>
+    <div class="login-error" id="loginError">لطفاً نام خود را وارد کنید.</div>
+  </div>
+</div>
+
+<!-- ===== محتوای اصلی ===== -->
+<div class="container" id="mainApp" style="display:none;">
+  
+  <!-- هدر -->
+  <header>
+    <div class="logo">
+      <i class="fas fa-dice-d6"></i>
+      <h1>Game <span>Box</span></h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#" class="active" data-page="home"><i class="fas fa-home"></i> خانه</a></li>
+        <li><a href="#" data-page="about"><i class="fas fa-user"></i> درباره من</a></li>
+        <li><a href="#" data-page="contact"><i class="fas fa-envelope"></i> تماس با من</a></li>
+        <li><a href="#" data-page="privacy"><i class="fas fa-shield-alt"></i> حریم خصوصی</a></li>
+      </ul>
+    </nav>
+    <div class="user-info" id="userInfo">
+      <span class="user-avatar" id="headerAvatar">😎</span>
+      <span class="user-name" id="headerName">
+        <span id="headerNameText">کاربر</span>
+        <span class="verified-badge" id="verifiedBadge" style="display:none;"><i class="fas fa-check-circle"></i></span>
+      </span>
+      <button class="logout-btn" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> خروج</button>
+    </div>
+  </header>
+
+  <!-- ===== صفحه خانه ===== -->
+  <div id="home" class="page active">
+    
+    <!-- ===== بنر ثابت (بدون کات) ===== -->
+    <div class="banner">
+      <img src="banner1.jpg" alt="بنر Game Box">
+    </div>
+
+    <h1 class="page-title"><i class="fas fa-gamepad"></i> Game Box | دایره‌المعارف بازی‌ها برای پیدا کردن بهترین بازی‌ها</h1>
+    
+    <p class="page-sub">به Game Box خوش آمدید؛ یک اپلیکیشن اندروید کاربردی برای علاقه‌مندان به بازی که به شما کمک می‌کند از میان 100 بازی مختلف، عنوان مناسب خود را سریع‌تر و ساده‌تر پیدا کنید.</p>
+    
+    <p class="page-sub">در Game Box می‌توانید بازی‌ها را بر اساس امتیاز، سیستم‌عامل، و سازگاری با دستگاه‌های مختلف فیلتر کنید و به نتیجه‌ای دقیق‌تر برسید. اگر دنبال این هستید که قبل از انتخاب بازی، اطلاعات لازم را یک‌جا ببینید، Game Box برای شما ساخته شده است.</p>
+
+    <div class="feature-grid">
+      <div class="feature-item"><i class="fas fa-list-ul"></i><h4>مشاهده 100 بازی مختلف</h4></div>
+      <div class="feature-item"><i class="fas fa-star"></i><h4>فیلتر بر اساس امتیاز بازی</h4></div>
+      <div class="feature-item"><i class="fab fa-android"></i><h4>فیلتر بر اساس سیستم‌عامل</h4></div>
+      <div class="feature-item"><i class="fas fa-mobile-alt"></i><h4>بررسی سازگاری با دستگاه‌ها</h4></div>
+      <div class="feature-item"><i class="fas fa-bolt"></i><h4>دسترسی سریع به اطلاعات بازی‌ها</h4></div>
+    </div>
+
+    <div class="badge-android"><i class="fab fa-android"></i> نسخه اندروید — به زودی</div>
+    
+    <div class="filter-sample">
+      <span><i class="fas fa-star" style="color:#ffb347;"></i> امتیاز: ۴.۵+</span>
+      <span><i class="fab fa-android"></i> سیستم‌عامل: اندروید ۱۰+</span>
+      <span><i class="fas fa-mobile-alt"></i> سازگاری: ۲۰۰+ دستگاه</span>
+      <span style="background:#0b1a2e; color:white; padding:6px 20px; border-radius:40px;"><i class="fas fa-sliders-h"></i> فیلترها</span>
+    </div>
+
+    <p style="margin-top:25px; font-size:1.2rem; color:#1b3b5c; background:#f0f6fe; padding:16px 28px; border-radius:60px; text-align:center;">
+      <i class="fas fa-rocket" style="color:#ffb347;"></i> Game Box یک همراه هوشمند برای انتخاب بهتر بازی‌هاست؛ ساده، سریع و کاربردی.
+    </p>
+
+    <div class="reviews-section" id="reviews">
+      <h3><i class="fas fa-comment-dots"></i> نظرات کاربران</h3>
+      <div class="review-list" id="reviewList">
+        <div class="review-item">
+          <div class="review-header">
+            <strong>علی رضایی</strong>
+            <span class="stars">★★★★★</span>
+          </div>
+          <div class="review-text">"Game Box واقعاً عالی‌ست! فیلترها خیلی دقیق هستند و بازی مورد نظرم را سریع پیدا کردم."</div>
+        </div>
+        <div class="review-item">
+          <div class="review-header">
+            <strong>سارا محمدی</strong>
+            <span class="stars">★★★★☆</span>
+          </div>
+          <div class="review-text">"طراحی زیبا و کاربرپسند. کاش بازی‌های بیشتری اضافه شود."</div>
+        </div>
+      </div>
+      <div class="review-form">
+        <h4 style="margin-bottom:4px;">نظر خود را ثبت کنید</h4>
+        <div class="row">
+          <input type="text" id="reviewName" placeholder="نام شما" />
+          <select id="reviewStars">
+            <option value="★★★★★">★★★★★</option>
+            <option value="★★★★☆">★★★★☆</option>
+            <option value="★★★☆☆">★★★☆☆</option>
+            <option value="★★☆☆☆">★★☆☆☆</option>
+            <option value="★☆☆☆☆">★☆☆☆☆</option>
+          </select>
+        </div>
+        <textarea id="reviewText" placeholder="متن نظر ..."></textarea>
+        <button id="submitReview"><i class="fas fa-pen"></i> ثبت نظر</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== درباره من ===== -->
+  <div id="about" class="page">
+    <div class="about-section">
+      <div class="about-text">
+        <h3><i class="fas fa-dice-d6"></i> درباره من</h3>
+        <p>
+          سلام، من اشکان پیمان هستم و توسعه‌دهنده اپلیکیشن Game Box.
+          <span class="verified-badge"><i class="fas fa-check-circle"></i> تأیید شده</span>
+        </p>
+        <p>این پروژه را با هدف ساخت یک مرجع ساده و کاربردی برای معرفی و جستجوی بازی‌ها طراحی کردم تا کاربران بتوانند راحت‌تر بازی مورد نظر خود را پیدا کنند.</p>
+        <p>ایده اصلی Game Box از این نیاز شکل گرفت که پیدا کردن بازی مناسب، همیشه باید سریع، دقیق و بر اساس سلیقه و دستگاه کاربر انجام شود. به همین دلیل، این اپلیکیشن با مجموعه‌ای از فیلترهای کاربردی طراحی شده تا تجربه‌ای بهتر برای کاربران فراهم کند.</p>
+        <p>من همیشه به ساخت ابزارهای مفید، ساده و قابل استفاده برای کاربران علاقه‌مند بوده‌ام و Game Box یکی از پروژه‌هایی است که با همین نگاه ساخته شده است.</p>
+      </div>
+      <div class="about-logo-badge">
+        <img src="https://dl.toolschi.com/up/e0a3b45e9fb71a1d.jpg" alt="اشکان پیمان">
+        <p style="font-weight:700; color:#0b1a2e;">اشکان پیمان</p>
+        <p style="font-size:0.9rem; color:#2f4760;">توسعه‌دهنده Game Box</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== تماس با من ===== -->
+  <div id="contact" class="page">
+    <h1 class="page-title"><i class="fas fa-paper-plane"></i> تماس با من</h1>
+    <p class="page-sub">اگر درباره Game Box سوالی دارید، پیشنهادی برای بهبود آن دارید یا مایل هستید همکاری کنید، می‌توانید از طریق ایمیل یا شماره تماس با من در ارتباط باشید.</p>
+    <div class="contact-info">
+      <div class="contact-details">
+        <div class="contact-item"><i class="fas fa-envelope"></i> <span>ashkanpeyman90@gmail.com</span></div>
+        <div class="contact-item"><i class="fas fa-phone-alt"></i> <span>۰۹۳۳۹۲۱۰۵۱۶</span></div>
+        <div class="contact-item"><i class="fas fa-map-marker-alt"></i> <span>اصفهان، ایران</span></div>
+        <div style="margin-top:20px; background:#f0f6fe; padding:20px; border-radius:40px;">
+          <p><i class="fas fa-heart" style="color:#ffb347;"></i> من همیشه از دریافت پیام‌ها، نظرها و پیشنهادهای شما استقبال می‌کنم.</p>
+        </div>
+      </div>
+      <div class="contact-form">
+        <h4 style="margin-bottom:16px;">ارسال پیام مستقیم</h4>
+        <input type="text" placeholder="نام شما" />
+        <input type="email" placeholder="ایمیل شما" />
+        <input type="text" placeholder="موضوع" />
+        <textarea placeholder="متن پیام ..."></textarea>
+        <button><i class="fas fa-paper-plane"></i> ارسال</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== حریم خصوصی ===== -->
+  <div id="privacy" class="page">
+    <div class="privacy-content">
+      <h1 class="page-title"><i class="fas fa-lock"></i> حریم خصوصی</h1>
+      <p>ما در Game Box به حریم خصوصی کاربران احترام می‌گذاریم و تلاش می‌کنیم اطلاعات به‌صورت امن و مسئولانه مدیریت شوند.</p>
+
+      <h4>اطلاعاتی که ممکن است استفاده شود</h4>
+      <p>Game Box ممکن است برای بهبود تجربه کاربری، اطلاعاتی مانند تنظیمات برنامه یا داده‌های مرتبط با استفاده از فیلترها را بررسی کند. این اطلاعات تنها برای بهبود عملکرد برنامه و ارائه تجربه بهتر استفاده می‌شوند.</p>
+
+      <h4>جمع‌آوری اطلاعات</h4>
+      <p>Game Box به‌گونه‌ای طراحی شده است که تا حد امکان ساده و کم‌داده باشد. ما اطلاعات شخصی حساس کاربران را بدون دلیل مشخص جمع‌آوری نمی‌کنیم.</p>
+
+      <h4>امنیت</h4>
+      <p>ما برای حفظ امنیت اطلاعات کاربران تلاش می‌کنیم و به‌روزرسانی‌های لازم را برای بهبود عملکرد و امنیت برنامه در نظر می‌گیریم.</p>
+
+      <h4>تغییرات در سیاست حریم خصوصی</h4>
+      <p>ممکن است در آینده این سیاست به‌روزرسانی شود. در صورت اعمال تغییرات، نسخه جدید در همین صفحه منتشر خواهد شد.</p>
+
+      <p style="margin-top:25px; background:#f0f6fe; padding:16px 28px; border-radius:60px;">
+        <i class="fas fa-check-circle" style="color:#ffb347;"></i> استفاده از Game Box به معنای پذیرش این سیاست حریم خصوصی است.
+      </p>
+    </div>
+  </div>
+
+  <!-- فوتر -->
+  <footer>
+    <span><i class="fas fa-dice-d6"></i> Game Box — دایره‌المعارف بازی‌ها</span>
+    <div class="footer-links">
+      <a href="#" data-page="home"><i class="fas fa-home"></i></a>
+      <a href="#" data-page="about"><i class="fas fa-user"></i></a>
+      <a href="#" data-page="contact"><i class="fas fa-envelope"></i></a>
+      <a href="#" data-page="privacy"><i class="fas fa-shield-alt"></i></a>
+    </div>
+    <span>© ۱۴۰۵ تمامي حقوق محفوظ است</span>
+  </footer>
+</div>
+
+<script>
+// =============================================
+// ===== ورود و خروج =====
+// =============================================
+var loginOverlay = document.getElementById('loginOverlay');
+var mainApp = document.getElementById('mainApp');
+var loginName = document.getElementById('loginName');
+var loginBtn = document.getElementById('loginBtn');
+var loginError = document.getElementById('loginError');
+var avatarOptions = document.querySelectorAll('.avatar-option');
+var selectedAvatar = '😎';
+
+avatarOptions.forEach(function(el) {
+  el.addEventListener('click', function() {
+    avatarOptions.forEach(function(o) { o.classList.remove('selected'); });
+    this.classList.add('selected');
+    selectedAvatar = this.dataset.avatar;
+  });
+});
+
+function handleLogin() {
+  var name = loginName.value.trim();
+  if (!name) {
+    loginError.style.display = 'block';
+    return;
+  }
+  loginError.style.display = 'none';
+  sessionStorage.setItem('gamebox_user', JSON.stringify({ name: name, avatar: selectedAvatar }));
+  loginOverlay.classList.add('hidden');
+  mainApp.style.display = 'block';
+  document.getElementById('headerAvatar').textContent = selectedAvatar;
+  document.getElementById('headerNameText').textContent = name;
+  if (name.trim() === 'اشکان پیمان') {
+    document.getElementById('verifiedBadge').style.display = 'inline-block';
+  }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+loginBtn.addEventListener('click', handleLogin);
+loginName.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') handleLogin();
+});
+
+document.getElementById('logoutBtn').addEventListener('click', function() {
+  sessionStorage.removeItem('gamebox_user');
+  mainApp.style.display = 'none';
+  loginOverlay.classList.remove('hidden');
+  loginName.value = 'اشکان پیمان';
+  avatarOptions.forEach(function(o) { o.classList.remove('selected'); });
+  document.querySelector('.avatar-option[data-avatar="😎"]').classList.add('selected');
+  selectedAvatar = '😎';
+});
+
+var saved = sessionStorage.getItem('gamebox_user');
+if (saved) {
+  try {
+    var data = JSON.parse(saved);
+    if (data.name && data.avatar) {
+      loginOverlay.classList.add('hidden');
+      mainApp.style.display = 'block';
+      document.getElementById('headerAvatar').textContent = data.avatar;
+      document.getElementById('headerNameText').textContent = data.name;
+      if (data.name.trim() === 'اشکان پیمان') {
+        document.getElementById('verifiedBadge').style.display = 'inline-block';
+      }
+    }
+  } catch(e) {}
+}
+
+// =============================================
+// ===== تغییر صفحات =====
+// =============================================
+var navLinks = document.querySelectorAll('nav ul li a, .footer-links a');
+var pages = {
+  home: document.getElementById('home'),
+  about: document.getElementById('about'),
+  contact: document.getElementById('contact'),
+  privacy: document.getElementById('privacy')
+};
+
+function showPage(pageId) {
+  for (var key in pages) {
+    if (pages[key]) {
+      pages[key].classList.remove('active');
+    }
+  }
+  if (pages[pageId]) {
+    pages[pageId].classList.add('active');
+  }
+  var allLinks = document.querySelectorAll('nav ul li a');
+  for (var i = 0; i < allLinks.length; i++) {
+    allLinks[i].classList.remove('active');
+    if (allLinks[i].dataset.page === pageId) {
+      allLinks[i].classList.add('active');
+    }
+  }
+}
+
+for (var i = 0; i < navLinks.length; i++) {
+  navLinks[i].addEventListener('click', function(e) {
+    e.preventDefault();
+    var page = this.dataset.page;
+    if (page) {
+      showPage(page);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  });
+}
+
+// =============================================
+// ===== ثبت نظر =====
+// =============================================
+document.getElementById('submitReview').addEventListener('click', function() {
+  var name = document.getElementById('reviewName').value.trim() || 'کاربر';
+  var stars = document.getElementById('reviewStars').value;
+  var text = document.getElementById('reviewText').value.trim();
+  if (!text) { alert('لطفاً متن نظر را وارد کنید.'); return; }
+  var reviewList = document.getElementById('reviewList');
+  var newReview = document.createElement('div');
+  newReview.className = 'review-item';
+  newReview.innerHTML = '<div class="review-header"><strong>' + name + '</strong><span class="stars">' + stars + '</span></div><div class="review-text">«' + text + '»</div>';
+  reviewList.prepend(newReview);
+  document.getElementById('reviewName').value = '';
+  document.getElementById('reviewText').value = '';
+  document.getElementById('reviewStars').selectedIndex = 0;
+});
+
+if (!document.querySelector('.page.active')) {
+  showPage('home');
+}
+</script>
+
+</body>
+</html>
